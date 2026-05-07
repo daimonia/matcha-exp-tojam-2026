@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b8q4r7jtlwaf4"]
+
+[node name="Node2D" type="Node2D" unique_id=677981220]
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=2081060590]
+offset_right = 263.0
+offset_bottom = 147.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "hello world"
