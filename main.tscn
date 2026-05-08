@@ -4,20 +4,49 @@
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfpseikim241k" path="res://scenes/play.tscn" id="2_h2yge"]
 [ext_resource type="AudioStream" uid="uid://cxoi8swam241h" path="res://music/clayblade_demo_layer1.wav" id="4_1bvp3"]
+[ext_resource type="AudioStream" uid="uid://4hnx0npihc77" path="res://music/clayblade_demo_layer2.wav" id="5_7mycd"]
+[ext_resource type="AudioStream" uid="uid://cl0y2bj01jjsk" path="res://music/clayblade_demo_layer3.wav" id="6_272bh"]
+[ext_resource type="Script" uid="uid://cvw4g15bpsxnx" path="res://soundtrack.gd" id="7_272bh"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_5vw27"]
+clip_count = 3
+clip_0/name = &"Layer1"
+clip_0/stream = ExtResource("4_1bvp3")
+clip_0/auto_advance = 0
+clip_1/name = &"Layer2"
+clip_1/stream = ExtResource("5_7mycd")
+clip_1/auto_advance = 0
+clip_2/name = &"Layer3"
+clip_2/stream = ExtResource("6_272bh")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 2,
+"hold_previous": true,
+"to_time": 0
+}
+}
 
 [node name="Main" type="Node2D" unique_id=714784745]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=127195962]
+[node name="Menu" type="Node" parent="." unique_id=847948923]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Menu" unique_id=127195962]
 follow_viewport_enabled = true
 
-[node name="MainMenu" parent="CanvasLayer" unique_id=1057747084 instance=ExtResource("1_ig7tw")]
+[node name="MainMenu" parent="Menu/CanvasLayer" unique_id=1057747084 instance=ExtResource("1_ig7tw")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 play_scene = ExtResource("2_h2yge")
 
-[node name="World" parent="." unique_id=997904528 instance=ExtResource("2_0xm2m")]
+[node name="World" parent="Menu" unique_id=997904528 instance=ExtResource("2_0xm2m")]
 position = Vector2(-3581, -3795)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=448808622]
-stream = ExtResource("4_1bvp3")
+[node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=39387055]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_5vw27")
 autoplay = true
+script = ExtResource("7_272bh")

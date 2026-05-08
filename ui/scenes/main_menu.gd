@@ -5,7 +5,13 @@ extends Control
 @onready var settings_modal = get_node("SettingsModal")
 
 func _on_play() -> void:
-    get_tree().change_scene_to_packed(play_scene)
+    var parent = get_parent()
+
+    parent.remove_child(%Menu)
+
+    var play = play_scene.instantiate()
+    play.soundtrack = %Soundtrack
+    parent.add_child(play)
 
 func _on_quit() -> void:
     get_tree().quit(0)
