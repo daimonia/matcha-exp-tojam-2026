@@ -16,9 +16,9 @@ func _ready() -> void:
     map_height =  map_size.size.y - map_size.position.y
 
     cells.resize(map_width)
-    for x in map_width:
-        cells[x] = []
-        cells[x].resize(map_height)
+    for y in map_width:
+        cells[y] = []
+        cells[y].resize(map_width)
 
     for coords in cell_positions:
         var tile = self.get_cell_tile_data(coords)
@@ -29,8 +29,8 @@ func _ready() -> void:
         set_cell_at_position(coords, TileCell.new(type))
 
     var repr = ""
-    for x in map_width:
-        for y in map_height:
+    for y in map_width:
+        for x in map_height:
             var cell = get_cell_at_position(Vector2(x, y))
             if cell == null:
                 repr += "[__, __]"
@@ -42,14 +42,16 @@ func _ready() -> void:
 
 
 func set_cell_at_position(pos: Vector2, cell: TileCell) -> void:
-    # assert(index < cells.size())
-    cells[pos.x][pos.y] = cell
+    assert(pos.y < cells.size())
+    assert(pos.x < cells[pos.y].size())
+    cells[pos.y][pos.x] = cell
     cell.position = pos
 
 
 func get_cell_at_position(pos: Vector2) -> TileCell:
-    # assert(index < cells.size())
-    return cells[pos.x][pos.y]
+    assert(pos.y < cells.size())
+    assert(pos.x < cells[pos.y].size())
+    return cells[pos.y][pos.x]
 
 
 func get_cell_at_local_position(pos: Vector2i) -> TileCell:
@@ -57,7 +59,7 @@ func get_cell_at_local_position(pos: Vector2i) -> TileCell:
     return get_cell_at_position(tile_pos)
 
 
-enum TileCellType {Empty, Grass, Clay, Dirt, HardStone}
+enum TileCellType {Empty, Grass, Clay, Dirt, HardStone, ObjectTree}
 
 
 class TileCell:
