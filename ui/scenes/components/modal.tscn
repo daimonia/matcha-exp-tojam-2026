@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://deqqtqxwritr1"]
+
+[ext_resource type="Script" uid="uid://ca0agrjnhjxt0" path="res://ui/scenes/components/modal.gd" id="1_dpjoo"]
+
+[node name="Modal" type="CanvasLayer" unique_id=1053821747]
+follow_viewport_enabled = true
+script = ExtResource("1_dpjoo")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=854439023]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.167
+anchor_top = 0.1
+anchor_right = 0.833
+anchor_bottom = 0.9
+theme_type_variation = &"Modal"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=155700634]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=124878701]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="TitleLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1667908945]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_type_variation = &"HeaderLarge"
+text = "Huh?"
+horizontal_alignment = 1
+
+[node name="ContentSlot" type="ScrollContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1208190724]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DefaultText" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ContentSlot" unique_id=933752548]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "default text"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1315121982]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 12
+
+[node name="CancelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2078807022]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="OKButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=649122115]
+unique_name_in_owner = true
+layout_mode = 2
+text = "OK"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="." method="_close"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/OKButton" to="." method="_save"]

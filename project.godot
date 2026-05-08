@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="tojam-2026-matcha-exp"
+run/main_scene="uid://c301e40sfv8jb"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [editor]
 

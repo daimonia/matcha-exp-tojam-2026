@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cmhajaaxjnr7x"]
+
+[ext_resource type="Script" uid="uid://3rq747xwdhl7" path="res://ui/scenes/main_menu.gd" id="2_7vrkn"]
+[ext_resource type="PackedScene" uid="uid://deqqtqxwritr1" path="res://ui/scenes/components/modal.tscn" id="3_fu7sn"]
+[ext_resource type="PackedScene" uid="uid://g8jpjeyae3yk" path="res://ui/scenes/components/settings_menu.tscn" id="4_jix8l"]
+
+[node name="MainMenu" type="Control" unique_id=1057747084]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_7vrkn")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=566203824]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 459.0
+offset_top = 96.0
+offset_right = -460.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MenuButtons" type="VBoxContainer" parent="MarginContainer" unique_id=174246026]
+layout_mode = 2
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="Play" type="Button" parent="MarginContainer/MenuButtons" unique_id=496997117]
+layout_mode = 2
+text = "play"
+
+[node name="Options" type="Button" parent="MarginContainer/MenuButtons" unique_id=2089816977]
+layout_mode = 2
+text = "options
+"
+
+[node name="Quit" type="Button" parent="MarginContainer/MenuButtons" unique_id=1989529959]
+layout_mode = 2
+text = "quit"
+
+[node name="SettingsModal" parent="." unique_id=989012316 instance=ExtResource("3_fu7sn")]
+visible = false
+title = "MY AMAZING SETTINGS :)"
+submit_label = "Save"
+content_scene = ExtResource("4_jix8l")
+
+[connection signal="pressed" from="MarginContainer/MenuButtons/Play" to="." method="_on_play"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Options" to="." method="_toggle_settings_modal_visible"]
+[connection signal="pressed" from="MarginContainer/MenuButtons/Quit" to="." method="_on_quit"]
+[connection signal="closed" from="SettingsModal" to="." method="_toggle_settings_modal_visible"]
+[connection signal="submitted" from="SettingsModal" to="." method="_on_settings_modal_submitted"]

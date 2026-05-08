@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c301e40sfv8jb"]
+
+[ext_resource type="PackedScene" uid="uid://cmhajaaxjnr7x" path="res://ui/scenes/main_menu.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=714784745]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=127195962]
+follow_viewport_enabled = true
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=1057747084 instance=ExtResource("1_ig7tw")]
+size_flags_horizontal = 3
+size_flags_vertical = 3

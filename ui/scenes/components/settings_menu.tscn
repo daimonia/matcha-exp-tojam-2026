@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://g8jpjeyae3yk"]
+
+[ext_resource type="Script" uid="uid://dixfdfe316mmy" path="res://ui/scenes/components/settings_menu.gd" id="1_xutny"]
+
+[node name="SettingsMenu" type="VBoxContainer" unique_id=754096713]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 32
+script = ExtResource("1_xutny")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=2120045483]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="ScrollContainer" unique_id=569961406]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetToDefault" type="Button" parent="." unique_id=883588706]
+layout_mode = 2
+text = "reset to default"
+
+[connection signal="pressed" from="ResetToDefault" to="." method="_on_reset_to_default_pressed"]

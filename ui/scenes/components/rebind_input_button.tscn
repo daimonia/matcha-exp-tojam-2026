@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://d3skc8aqo4jmj"]
+
+[node name="RebindInputButton" type="Button" unique_id=2142055576]
+custom_minimum_size = Vector2(0, 48)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=784179395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1637428276]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=349638132]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+text = "Action"
+
+[node name="Spacer" type="Control" parent="MarginContainer/HBoxContainer" unique_id=872404866]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+
+[node name="InputLabel" type="Label" parent="MarginContainer/HBoxContainer" unique_id=1337677378]
+layout_mode = 2
+size_flags_horizontal = 8
+mouse_filter = 1
+text = "Input"
