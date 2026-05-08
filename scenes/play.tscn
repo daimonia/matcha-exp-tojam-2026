@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dfpseikim241k"]
+
+[ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="1_8r3iy"]
+[ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
+[ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/camera.gd" id="3_bq38n"]
+
+[node name="Play" type="Node2D" unique_id=358200194]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=182472964]
+
+[node name="HUD" parent="CanvasLayer" unique_id=1673044824 instance=ExtResource("1_bofkp")]
+
+[node name="World" parent="." unique_id=997904528 instance=ExtResource("1_8r3iy")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1116750704]
+position = Vector2(938, 682)
+script = ExtResource("3_bq38n")
+max_speed = 1000.0
