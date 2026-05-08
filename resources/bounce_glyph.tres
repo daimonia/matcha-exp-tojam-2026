@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://btkr0apy2x3h3"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_wx6p0"]
+[ext_resource type="Texture2D" uid="uid://1i6ijblqgn81" path="res://art/glyphs/glyph_bounce.PNG" id="2_wx6p0"]
+
+[resource]
+script = ExtResource("1_wx6p0")
+name = "Bounce"
+texture = ExtResource("2_wx6p0")
+metadata/_custom_type_script = "uid://b1bj1cycl0te1"
