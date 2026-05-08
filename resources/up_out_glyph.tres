@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://wde83rpq2g8l"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_pie8k"]
+
+[resource]
+script = ExtResource("1_pie8k")
+metadata/_custom_type_script = "uid://b1bj1cycl0te1"
