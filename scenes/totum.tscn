@@ -2,12 +2,86 @@
 
 [ext_resource type="Script" uid="uid://vlnxcg7rf6et" path="res://scenes/scripts/totum.gd" id="1_81aao"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="2_57vms"]
-[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/bounce_glyph.tres" id="3_ba5jr"]
-[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="4_h7nm4"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="3_ba5jr"]
+[ext_resource type="Texture2D" uid="uid://3f03op64csu5" path="res://art/totum/top.PNG" id="4_onkh5"]
+[ext_resource type="Texture2D" uid="uid://dcg0bv6ombyen" path="res://art/totum/ClaybladeSpriteSheet.png" id="5_tdrer"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en7iw"]
+atlas = ExtResource("4_onkh5")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2lil"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(0, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61c78"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(585, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1nxp"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(1170, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifp7h"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(1755, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j0wk"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(2340, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvfnd"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(2925, 0, 585, 585)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l80w"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(3510, 0, 585, 585)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8286v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en7iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2lil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61c78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1nxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j0wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvfnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l80w")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 12.0
+}]
 
 [node name="Totum" type="Node2D" unique_id=199768820]
 script = ExtResource("1_81aao")
 glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1451300825]
-texture = ExtResource("4_h7nm4")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504332766]
+sprite_frames = SubResource("SpriteFrames_8286v")
+animation = &"spin"
+frame_progress = 0.88443005
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1862440962]
