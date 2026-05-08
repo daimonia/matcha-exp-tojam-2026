@@ -3,6 +3,30 @@
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="1_8r3iy"]
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
 [ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
+[ext_resource type="AudioStream" uid="uid://cxoi8swam241h" path="res://music/clayblade_demo_layer1.wav" id="4_j27tm"]
+[ext_resource type="AudioStream" uid="uid://4hnx0npihc77" path="res://music/clayblade_demo_layer2.wav" id="5_1o7w5"]
+[ext_resource type="AudioStream" uid="uid://cl0y2bj01jjsk" path="res://music/clayblade_demo_layer3.wav" id="6_nak7m"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_efqae"]
+clip_count = 3
+clip_0/name = &"Layer1"
+clip_0/stream = ExtResource("4_j27tm")
+clip_0/auto_advance = 0
+clip_1/name = &"Layer2"
+clip_1/stream = ExtResource("5_1o7w5")
+clip_1/auto_advance = 0
+clip_2/name = &"Layer3"
+clip_2/stream = ExtResource("6_nak7m")
+clip_2/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 2,
+"hold_previous": true,
+"to_time": 0
+}
+}
 
 [node name="Play" type="Node2D" unique_id=358200194]
 
@@ -18,3 +42,8 @@ position = Vector2(938, 682)
 script = ExtResource("3_bq38n")
 max_speed = 1000.0
 zoom_speed = 10.0
+
+[node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=42933757]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamInteractive_efqae")
+autoplay = true

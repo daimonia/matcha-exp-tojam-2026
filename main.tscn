@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmhajaaxjnr7x" path="res://ui/scenes/main_menu.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfpseikim241k" path="res://scenes/play.tscn" id="2_h2yge"]
+[ext_resource type="AudioStream" uid="uid://cxoi8swam241h" path="res://music/clayblade_demo_layer1.wav" id="4_1bvp3"]
 
 [node name="Main" type="Node2D" unique_id=714784745]
 
@@ -16,3 +17,7 @@ play_scene = ExtResource("2_h2yge")
 
 [node name="World" parent="." unique_id=997904528 instance=ExtResource("2_0xm2m")]
 position = Vector2(-3581, -3795)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=448808622]
+stream = ExtResource("4_1bvp3")
+autoplay = true
