@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://cjox5c1nh7fnh"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_a471u"]
+[ext_resource type="Texture2D" uid="uid://boo0rh5ffxm5v" path="res://art/glyphs/glyph_downdeep.PNG" id="2_5pgfh"]
+
+[resource]
+script = ExtResource("1_a471u")
+name = "Down Deep"
+texture = ExtResource("2_5pgfh")
+metadata/_custom_type_script = "uid://b1bj1cycl0te1"

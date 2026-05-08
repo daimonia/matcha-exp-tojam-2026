@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://dpar3iv5jnqek"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_ta1yr"]
+[ext_resource type="Texture2D" uid="uid://bhfbqts4cleme" path="res://art/glyphs/glyph_spiral.PNG" id="2_43iqh"]
+
+[resource]
+script = ExtResource("1_ta1yr")
+name = "Spiral"
+texture = ExtResource("2_43iqh")
+metadata/_custom_type_script = "uid://b1bj1cycl0te1"
