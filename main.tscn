@@ -15,4 +15,4 @@ size_flags_vertical = 3
 play_scene = ExtResource("2_h2yge")
 
 [node name="World" parent="." unique_id=997904528 instance=ExtResource("2_0xm2m")]
-position = Vector2(-1062, -517)
+position = Vector2(-3581, -3795)
