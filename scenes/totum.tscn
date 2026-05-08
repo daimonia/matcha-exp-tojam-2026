@@ -85,3 +85,9 @@ animation = &"spin"
 frame_progress = 0.88443005
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1862440962]
+
+[node name="Timer" type="Timer" parent="." unique_id=306708604]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

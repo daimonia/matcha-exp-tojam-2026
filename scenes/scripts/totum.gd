@@ -3,6 +3,9 @@
 extends Node2D
 
 @export var glyphs: Array[Glyph] = []
+@export var glyphVis: bool
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
@@ -11,12 +14,23 @@ func _ready() -> void:
 
 func _update_glyph():
 	for glyph in glyphs:
-		var sprite = Sprite2D.new()
-		sprite.texture = glyph.texture
-		add_child(sprite)
+		if (glyphVis == true):
+			var sprite = Sprite2D.new()
+			sprite.texture = glyph.texture
+			add_child(sprite)
 
+func _spin_start():
+	#start the timer and run the spinning animation
+	timer.start()
+	animation_player.play("spin")
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		# running as a tool script, so don't do anything wild
 		return
+
+
+func _on_timer_timeout() -> void:
+	#when the timer stops, also stop the spinning animation
+	animation_player.play("default")
+	
