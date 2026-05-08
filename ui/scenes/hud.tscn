@@ -24,32 +24,17 @@ grow_horizontal = 2
 grow_vertical = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="ClaybladeHotbarItem" type="Panel" parent="Hotbar" unique_id=1031207771]
-custom_minimum_size = Vector2(128, 128)
+[node name="TotumHotbar" parent="Hotbar" unique_id=199768820 instance=ExtResource("1_aydmx")]
 layout_mode = 2
 
-[node name="TotumHotbar" parent="Hotbar/ClaybladeHotbarItem" unique_id=199768820 instance=ExtResource("1_aydmx")]
-
-[node name="ClaybladeHotbarItem2" type="Panel" parent="Hotbar" unique_id=79456779]
-custom_minimum_size = Vector2(128, 128)
+[node name="TotumHotbar2" parent="Hotbar" unique_id=240095996 instance=ExtResource("1_aydmx")]
 layout_mode = 2
 
-[node name="TotumHotbar2" parent="Hotbar/ClaybladeHotbarItem2" unique_id=240095996 instance=ExtResource("1_aydmx")]
-position = Vector2(-132, 0)
-
-[node name="ClaybladeHotbarItem3" type="Panel" parent="Hotbar" unique_id=952201658]
-custom_minimum_size = Vector2(128, 128)
+[node name="TotumHotbar3" parent="Hotbar" unique_id=1116557352 instance=ExtResource("1_aydmx")]
 layout_mode = 2
 
-[node name="TotumHotbar3" parent="Hotbar/ClaybladeHotbarItem3" unique_id=1116557352 instance=ExtResource("1_aydmx")]
-position = Vector2(-264, 0)
-
-[node name="ClaybladeHotbarItem4" type="Panel" parent="Hotbar" unique_id=792146584]
-custom_minimum_size = Vector2(128, 128)
+[node name="TotumHotbar4" parent="Hotbar" unique_id=1874363285 instance=ExtResource("1_aydmx")]
 layout_mode = 2
-
-[node name="TotumHotbar4" parent="Hotbar/ClaybladeHotbarItem4" unique_id=1874363285 instance=ExtResource("1_aydmx")]
-position = Vector2(-396, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1422991236]
 layout_mode = 1
