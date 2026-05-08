@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://hktteom25w3a"]
+
+[ext_resource type="Script" uid="uid://dugug370s8iur" path="res://ui/scenes/totum_hotbar.gd" id="1_fr1n0"]
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="2_mfl5h"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/bounce_glyph.tres" id="3_ysaq4"]
+[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="4_kitk6"]
+
+[node name="TotumHotbar" type="Node2D" unique_id=199768820]
+script = ExtResource("1_fr1n0")
+glyphs = Array[ExtResource("2_mfl5h")]([ExtResource("3_ysaq4")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1451300825]
+texture = ExtResource("4_kitk6")

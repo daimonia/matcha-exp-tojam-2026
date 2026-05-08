@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cd2usxb5bt5da"]
 
-[ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="1_aydmx"]
+[ext_resource type="PackedScene" uid="uid://hktteom25w3a" path="res://ui/scenes/totum_hotbar.tscn" id="1_aydmx"]
 
 [node name="HUD" type="Control" unique_id=1673044824]
 layout_mode = 3
@@ -28,33 +28,28 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Totum" parent="Hotbar/ClaybladeHotbarItem" unique_id=199768820 instance=ExtResource("1_aydmx")]
-position = Vector2(65, 63)
-scale = Vector2(0.25, 0.25)
+[node name="TotumHotbar" parent="Hotbar/ClaybladeHotbarItem" unique_id=199768820 instance=ExtResource("1_aydmx")]
 
 [node name="ClaybladeHotbarItem2" type="Panel" parent="Hotbar" unique_id=79456779]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Totum" parent="Hotbar/ClaybladeHotbarItem2" unique_id=1673032676 instance=ExtResource("1_aydmx")]
-position = Vector2(65, 63)
-scale = Vector2(0.25, 0.25)
+[node name="TotumHotbar2" parent="Hotbar/ClaybladeHotbarItem2" unique_id=240095996 instance=ExtResource("1_aydmx")]
+position = Vector2(-132, 0)
 
 [node name="ClaybladeHotbarItem3" type="Panel" parent="Hotbar" unique_id=952201658]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Totum" parent="Hotbar/ClaybladeHotbarItem3" unique_id=1373605303 instance=ExtResource("1_aydmx")]
-position = Vector2(65, 62)
-scale = Vector2(0.25, 0.25)
+[node name="TotumHotbar3" parent="Hotbar/ClaybladeHotbarItem3" unique_id=1116557352 instance=ExtResource("1_aydmx")]
+position = Vector2(-264, 0)
 
 [node name="ClaybladeHotbarItem4" type="Panel" parent="Hotbar" unique_id=792146584]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 
-[node name="Totum" parent="Hotbar/ClaybladeHotbarItem4" unique_id=935737419 instance=ExtResource("1_aydmx")]
-position = Vector2(65, 62)
-scale = Vector2(0.25, 0.25)
+[node name="TotumHotbar4" parent="Hotbar/ClaybladeHotbarItem4" unique_id=1874363285 instance=ExtResource("1_aydmx")]
+position = Vector2(-396, 0)
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1422991236]
 layout_mode = 1

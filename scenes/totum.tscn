@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dme7venijbebj"]
 
-[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="1_757ni"]
-[ext_resource type="Script" uid="uid://vlnxcg7rf6et" path="res://scenes/scripts/totum.gd" id="1_q7sjv"]
-[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="2_onkh5"]
-[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/bounce_glyph.tres" id="3_q7sjv"]
+[ext_resource type="Script" uid="uid://vlnxcg7rf6et" path="res://scenes/scripts/totum.gd" id="1_81aao"]
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="2_57vms"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/bounce_glyph.tres" id="3_ba5jr"]
+[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="4_h7nm4"]
 
 [node name="Totum" type="Node2D" unique_id=199768820]
-script = ExtResource("1_q7sjv")
-glyphs = Array[ExtResource("2_onkh5")]([ExtResource("3_q7sjv")])
+script = ExtResource("1_81aao")
+glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1451300825]
-texture = ExtResource("1_757ni")
+texture = ExtResource("4_h7nm4")
