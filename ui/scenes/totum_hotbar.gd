@@ -1,15 +1,18 @@
 @tool
 
-extends Node2D
+extends Control
 
 @export var glyphs: Array[Glyph] = []
 
-@onready var starting_position = position
+@onready var totum_sprite = %TotumSprite
 
 
-enum State {InHotbar, Dragging, Dropped}
+enum State {InHotbar, Hovering, Dragging, Dropped}
 
-var state = State.InHotbar
+var state = State.InHotbar:
+    set(value):
+        print('transitioning to %s' % [State.find_key(value)])
+        state = value
 
 
 func _ready() -> void:
@@ -30,15 +33,41 @@ func _process(_delta: float) -> void:
 
     match state:
         State.Dragging:
-            position = get_local_mouse_position()
+            totum_sprite.position = get_local_mouse_position()
         State.Dropped:
-            position = starting_position
+            totum_sprite.position = (size / 2)
             state = State.InHotbar
 
 
 func _input(event: InputEvent) -> void:
-    if event is InputEventMouse:
-        if event.is_pressed:
+    if Engine.is_editor_hint():
+        # running as a tool script, so don't do anything wild
+        return
+
+    if event is InputEventMouseButton:
+        if event.is_pressed() and state == State.Hovering:
             state = State.Dragging
-        else:
+        elif !event.is_pressed() and state == State.Dragging:
             state = State.Dropped
+
+
+func _on_mouse_entered() -> void:
+    if Engine.is_editor_hint():
+        # running as a tool script, so don't do anything wild
+        return
+
+    print('%s - entered' % [self])
+
+    match state:
+        State.InHotbar:
+            state = State.Hovering
+
+
+func _on_mouse_exited() -> void:
+    if Engine.is_editor_hint():
+        # running as a tool script, so don't do anything wild
+        return
+
+    match state:
+        State.Hovering:
+            state = State.InHotbar
