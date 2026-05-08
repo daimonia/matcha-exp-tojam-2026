@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="1_8r3iy"]
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
-[ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/camera.gd" id="3_bq38n"]
+[ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 
