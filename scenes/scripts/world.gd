@@ -12,6 +12,12 @@ func _ready() -> void:
 
     layers.reverse()
 
+    for i in layers.size():
+        if i > 0:
+            layers[i].layer_above = layers[i-1]
+
+        if i < layers.size() - 1:
+            layers[i].layer_below = layers[i+1]
 
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.double_click:
