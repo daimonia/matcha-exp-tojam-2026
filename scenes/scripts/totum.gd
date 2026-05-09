@@ -23,7 +23,8 @@ func _update_glyph():
 func spin_start():
 	#start the timer and run the spinning animation
 	timer.start()
-	animation_player.play("spin")
+	# animation_player.play("spin")
+	animated_sprite_2d.play("spin")
 	#print("spinning, I swears it, mistress")
 
 func _process(_delta: float) -> void:
@@ -36,4 +37,3 @@ func _on_timer_timeout() -> void:
 	#when the timer stops, also stop the spinning animation
 	animation_player.play("toppled")
 	print("done timin things")
-	

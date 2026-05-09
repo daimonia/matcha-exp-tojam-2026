@@ -147,6 +147,7 @@ glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504332766]
 sprite_frames = SubResource("SpriteFrames_8286v")
+autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1862440962]
 libraries/ = SubResource("AnimationLibrary_o2lil")
