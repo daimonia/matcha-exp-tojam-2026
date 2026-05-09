@@ -6,6 +6,18 @@ class_name WorldLayer
 @export var layer_above: WorldLayer
 @export var layer_below: WorldLayer
 
+@export var max_depth: int:
+    set(value):
+        max_depth = value
+        # var mod = float(depth) / float(max_depth)
+        # modulate = Color(255 - mod * 50, 255 - mod * 50, 255 - mod * 50, 1)
+        # print('%s modulating: %d / %d, %f, %s' % [self.name, depth, max_depth, mod, modulate])
+
+@export var depth: int:
+    set(value):
+        depth = value
+        # self.modulate = Color(0, 0, 0, float(value) / max_depth)
+
 @onready var cell_positions = self.get_used_cells()
 @onready var map_size = self.get_used_rect()
 
@@ -39,7 +51,7 @@ func _on_cell_destroyed(cell: TileCell) -> void:
 
     if layer_above:
         var above_cell = layer_above.get_cell_at_position(cell.coords)
-        if above_cell.type == TileCellType.ObjectTree:
+        if above_cell != null and above_cell.type == TileCellType.ObjectTree:
             above_cell.take_damage(1000)
 
 

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c301e40sfv8jb"]
 
+[ext_resource type="Script" uid="uid://dctpgp3klhn4r" path="res://main.gd" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://cmhajaaxjnr7x" path="res://ui/scenes/main_menu.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfpseikim241k" path="res://scenes/play.tscn" id="2_h2yge"]
@@ -30,6 +31,8 @@ Vector2i(-1, -1): {
 }
 
 [node name="Main" type="Node2D" unique_id=714784745]
+script = ExtResource("1_272bh")
+play_scene = ExtResource("2_h2yge")
 
 [node name="Menu" type="Node" parent="." unique_id=847948923]
 unique_name_in_owner = true
@@ -40,7 +43,6 @@ follow_viewport_enabled = true
 [node name="MainMenu" parent="Menu/CanvasLayer" unique_id=1057747084 instance=ExtResource("1_ig7tw")]
 size_flags_horizontal = 3
 size_flags_vertical = 3
-play_scene = ExtResource("2_h2yge")
 
 [node name="World" parent="Menu" unique_id=997904528 instance=ExtResource("2_0xm2m")]
 position = Vector2(-4197, -3376)
@@ -50,3 +52,5 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamInteractive_5vw27")
 autoplay = true
 script = ExtResource("7_272bh")
+
+[connection signal="play_game" from="Menu/CanvasLayer/MainMenu" to="." method="_on_main_menu_play_game"]
