@@ -1,8 +1,17 @@
 [gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://c5ednusng0xmt"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_6tj2e"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="2_p0i6s"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_q1tvx"]
+[ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="3_j42ca"]
+[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="4_kwi27"]
+[ext_resource type="Resource" uid="uid://cjsdep471csh4" path="res://resources/glyphs/heal_glyph.tres" id="5_6oi07"]
+[ext_resource type="Resource" uid="uid://di3ue72y8xnqw" path="res://resources/glyphs/hp_up_glyph.tres" id="6_xht5r"]
+[ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="7_uq17f"]
 
 [resource]
 script = ExtResource("2_q1tvx")
+name = "Clay"
+hp = 4
+rewards = Array[ExtResource("1_6tj2e")]([ExtResource("2_p0i6s"), ExtResource("3_j42ca"), ExtResource("4_kwi27"), ExtResource("5_6oi07"), ExtResource("6_xht5r"), ExtResource("7_uq17f")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

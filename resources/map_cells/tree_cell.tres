@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://bee3r0s5pbi63"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_pcces"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="2_d251e"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_wfml5"]
+[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="3_wwig4"]
+[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="4_ehfjl"]
+[ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="5_fce18"]
+[ext_resource type="Resource" uid="uid://wde83rpq2g8l" path="res://resources/glyphs/up_out_glyph.tres" id="6_fx5ht"]
+
+[resource]
+script = ExtResource("2_wfml5")
+name = "Tree"
+hp = 7
+dmg = 1
+rewards = Array[ExtResource("1_pcces")]([ExtResource("2_d251e"), ExtResource("3_wwig4"), ExtResource("4_ehfjl"), ExtResource("5_fce18"), ExtResource("6_fx5ht")])
+metadata/_custom_type_script = "uid://borxkduvhl3kr"
