@@ -41,11 +41,20 @@ func _ready() -> void:
     print(repr)
 
 
+func _on_cell_destroyed(cell: TileCell) -> void:
+    print('%s: i died' % cell)
+    set_cell(cell.position)
+    set_cell_at_position(cell.position, TileCell.new(TileCellType.Empty))
+    cell.disconnect("destroyed", _on_cell_destroyed)
+
+
 func set_cell_at_position(pos: Vector2, cell: TileCell) -> void:
     assert(pos.y < cells.size())
     assert(pos.x < cells[pos.y].size())
     cells[pos.y][pos.x] = cell
     cell.position = pos
+
+    cell.connect("destroyed", _on_cell_destroyed.bind(cell))
 
 
 func get_cell_at_position(pos: Vector2) -> TileCell:
@@ -65,10 +74,18 @@ enum TileCellType {Empty, Grass, Clay, Dirt, HardStone, ObjectTree}
 class TileCell:
     var type: TileCellType
     var position: Vector2
-    var hp = 0
+    var max_hp = 10
+    var current_hp = max_hp
+
+    signal destroyed
 
     func _init(_type: TileCellType):
         type = _type
 
+    func take_damage(amount: int) -> void:
+        current_hp = clamp(current_hp - amount, 0, max_hp)
+        if current_hp <= 0:
+            destroyed.emit()
+
     func _to_string() -> String:
-        return "<%s [%s] [hp: %d]>" % [TileCellType.find_key(type), position, hp]
+        return "<%s [%s] [hp: %d/%d]>" % [TileCellType.find_key(type), position, current_hp, max_hp]

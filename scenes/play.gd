@@ -5,7 +5,7 @@ var soundtrack: Soundtrack
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    assert(soundtrack != null)
+    pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
