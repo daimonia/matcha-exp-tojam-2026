@@ -1,30 +1,23 @@
 @tool
 
+class_name TotumHotbar
+
 extends Control
 
-@export var glyphs: Array[Glyph] = []
+@export var current_totum_state: Totum.State
 
 @onready var totum_sprite = %TotumSprite
-@onready var world_totum: Node2D = $Totum
+
+signal drag_started
+signal drag_dropped
 
 
-enum State {InHotbar, Hovering, Dragging, Dropped}
-
-var state = State.InHotbar:
-    set(value):
-        print('transitioning to %s' % [State.find_key(value)])
-        state = value
+var is_hovering = false
+var is_dragging = false
 
 
 func _ready() -> void:
-    _update_glyph()
-
-
-func _update_glyph():
-    for glyph in glyphs:
-        var sprite = Sprite2D.new()
-        sprite.texture = glyph.texture
-        add_child(sprite)
+    assert(current_totum_state != null, "no state no hotbar >:(")
 
 
 func _process(_delta: float) -> void:
@@ -32,25 +25,25 @@ func _process(_delta: float) -> void:
         # running as a tool script, so don't do anything wild
         return
 
-    match state:
-        State.Dragging:
-            world_totum.position = get_local_mouse_position()
-        State.Dropped:
-            world_totum.spin_start()
-            state = State.InHotbar
-
 
 func _input(event: InputEvent) -> void:
     if Engine.is_editor_hint():
         # running as a tool script, so don't do anything wild
         return
 
+    var is_allowed_to_start_drag = current_totum_state == Totum.State.Holstered
+
     if event is InputEventMouseButton:
-        if event.is_pressed() and state == State.Hovering:
-            state = State.Dragging
-            world_totum.visible = true
-        elif event.is_released() and state == State.Dragging:
-            state = State.Dropped
+        if event.is_pressed() and is_hovering and is_allowed_to_start_drag:
+            is_dragging = true
+            drag_started.emit()
+        elif event.is_released() and is_dragging:
+            is_dragging = false
+            drag_dropped.emit()
+
+
+func update_totum_state(state: Totum.State) -> void:
+    current_totum_state = state
 
 
 func _on_mouse_entered() -> void:
@@ -58,11 +51,7 @@ func _on_mouse_entered() -> void:
         # running as a tool script, so don't do anything wild
         return
 
-    print('%s - entered' % [self])
-
-    match state:
-        State.InHotbar:
-            state = State.Hovering
+    is_hovering = true
 
 
 func _on_mouse_exited() -> void:
@@ -70,6 +59,4 @@ func _on_mouse_exited() -> void:
         # running as a tool script, so don't do anything wild
         return
 
-    match state:
-        State.Hovering:
-            state = State.InHotbar
+    is_hovering = false

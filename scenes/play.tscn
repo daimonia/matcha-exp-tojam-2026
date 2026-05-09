@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
 [ext_resource type="Script" uid="uid://ckwcw8vd25grp" path="res://scenes/scripts/play.gd" id="1_hsi3f"]
 [ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
-[ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/totum_manager.gd" id="5_65v2a"]
+[ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
+[ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -22,5 +23,31 @@ script = ExtResource("3_bq38n")
 max_speed = 1000.0
 zoom_speed = 10.0
 
-[node name="TotumManager" type="Node" parent="." unique_id=1137852124]
+[node name="TotumManager" type="Node" parent="." unique_id=1137852124 node_paths=PackedStringArray("hud", "totums")]
 script = ExtResource("5_65v2a")
+hud = NodePath("../CanvasLayer/HUD")
+totums = [NodePath("Totum4"), NodePath("Totum3"), NodePath("Totum2"), NodePath("Totum")]
+
+[node name="Totum4" parent="TotumManager" unique_id=199768820 instance=ExtResource("6_j27tm")]
+position = Vector2(112.5, 117)
+scale = Vector2(0.25, 0.25)
+state = null
+glyph_visible = null
+
+[node name="Totum3" parent="TotumManager" unique_id=1646026232 instance=ExtResource("6_j27tm")]
+position = Vector2(131.25, 136.5)
+scale = Vector2(0.25, 0.25)
+state = null
+glyph_visible = null
+
+[node name="Totum2" parent="TotumManager" unique_id=1961648608 instance=ExtResource("6_j27tm")]
+position = Vector2(140.625, 146.25)
+scale = Vector2(0.25, 0.25)
+state = null
+glyph_visible = null
+
+[node name="Totum" parent="TotumManager" unique_id=1574673616 instance=ExtResource("6_j27tm")]
+position = Vector2(75, 78)
+scale = Vector2(0.25, 0.25)
+state = null
+glyph_visible = null
