@@ -3,15 +3,15 @@ extends BaseGlyphAction
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+var rng = RandomNumberGenerator.new()
+var cardinal: int = rng.randi_range(0,3)
+var times: int = rng.randi_range(1,3)
+
 var damage_directions: Array[Vector2] = [
      Vector2(0,1),
      Vector2(0,-1),
      Vector2(-1,0),
      Vector2(1,0),
-     Vector2(1,1),
-     Vector2(1,-1),
-     Vector2(-1,1),
-     Vector2(-1,-1)
     ]
 
 # Called when the node enters the scene tree for the first time.
@@ -28,8 +28,8 @@ func _ready() -> void:
             #deal damage to the layer below
             #current_layer.layer_below.get_cell_at_position(cell.coords).take_damage(1000)
             #deal damage to the cardinal directions on same layer
-            for direction in damage_directions:
-                var temp = current_layer.get_cell_at_position(cell.coords + direction)
+            for time in times:
+                var temp = current_layer.get_cell_at_position(cell.coords + (damage_directions[cardinal]*time*2))
                 if temp:
                     temp.take_damage(1000)
     else:
