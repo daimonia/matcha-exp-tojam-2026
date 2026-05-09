@@ -10,30 +10,30 @@ extends Node2D
 
 
 func _ready() -> void:
-	_update_glyph()
+    _update_glyph()
 
 
 func _update_glyph():
-	for glyph in glyphs:
-		if (glyphVis == true):
-			var sprite = Sprite2D.new()
-			sprite.texture = glyph.texture
-			add_child(sprite)
+    for glyph in glyphs:
+        if (glyphVis == true):
+            var sprite = Sprite2D.new()
+            sprite.texture = glyph.texture
+            add_child(sprite)
 
 func spin_start():
-	#start the timer and run the spinning animation
-	timer.start()
-	# animation_player.play("spin")
-	animated_sprite_2d.play("spin")
-	#print("spinning, I swears it, mistress")
+    #start the timer and run the spinning animation
+    timer.start()
+    # animation_player.play("spin")
+    animated_sprite_2d.play("spin")
+    #print("spinning, I swears it, mistress")
 
 func _process(_delta: float) -> void:
-	if Engine.is_editor_hint():
-		# running as a tool script, so don't do anything wild
-		return
+    if Engine.is_editor_hint():
+        # running as a tool script, so don't do anything wild
+        return
 
 
 func _on_timer_timeout() -> void:
-	#when the timer stops, also stop the spinning animation
-	animation_player.play("toppled")
-	print("done timin things")
+    #when the timer stops, also stop the spinning animation
+    animation_player.play("toppled")
+    print("done timin things")
