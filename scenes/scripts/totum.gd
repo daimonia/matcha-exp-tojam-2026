@@ -34,6 +34,6 @@ func _process(_delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	#when the timer stops, also stop the spinning animation
-	animation_player.play("default")
+	animation_player.play("toppled")
 	print("done timin things")
 	
