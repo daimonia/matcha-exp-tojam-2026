@@ -94,7 +94,7 @@ func get_current_layer() -> WorldLayer:
     for layer in world.layers:
         var cell = layer.get_cell_at_global_position(global_position)
         if cell != null and cell.cell_type != MapCellDefinition.CellType.Empty:
-            return layer
+            return layer.layer_above
 
     assert(false, "failed to locate layer at global position %v" % global_position)
     return null
