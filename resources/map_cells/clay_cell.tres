@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://c5ednusng0xmt"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_6tj2e"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_q1tvx"]
+
+[resource]
+script = ExtResource("2_q1tvx")
+metadata/_custom_type_script = "uid://borxkduvhl3kr"

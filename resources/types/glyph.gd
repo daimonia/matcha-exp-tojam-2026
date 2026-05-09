@@ -4,6 +4,7 @@ class_name Glyph
 
 @export var name: String
 @export var texture: Texture2D
+@export var description: String
 
 @export var action_node: PackedScene
 
