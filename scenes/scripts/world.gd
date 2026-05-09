@@ -18,7 +18,8 @@ func _input(event: InputEvent) -> void:
         var pos = get_local_mouse_position()
         for layer in layers:
             var cell = layer.get_cell_at_local_position(pos)
-            print(layer.name, cell)
             if cell == null or cell.type == WorldLayer.TileCellType.Empty:
                 continue
+            cell.take_damage(3)
+            print(layer.name, cell)
             break
