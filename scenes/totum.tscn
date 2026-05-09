@@ -11,33 +11,33 @@
 atlas = ExtResource("4_onkh5")
 region = Rect2(0, 0, 512, 512)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdrer"]
+atlas = ExtResource("5_tdrer")
+region = Rect2(0, 0, 256, 256)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_o2lil"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(0, 0, 585, 585)
+region = Rect2(256, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_61c78"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(585, 0, 585, 585)
+region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1nxp"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(1170, 0, 585, 585)
+region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifp7h"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(1755, 0, 585, 585)
+region = Rect2(1024, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0j0wk"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(2340, 0, 585, 585)
+region = Rect2(1280, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qvfnd"]
 atlas = ExtResource("5_tdrer")
-region = Rect2(2925, 0, 585, 585)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4l80w"]
-atlas = ExtResource("5_tdrer")
-region = Rect2(3510, 0, 585, 585)
+region = Rect2(1536, 0, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8286v"]
 animations = [{
@@ -50,6 +50,9 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdrer")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o2lil")
 }, {
@@ -67,9 +70,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qvfnd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4l80w")
 }],
 "loop": true,
 "name": &"spin",
@@ -141,9 +141,14 @@ _data = {
 &"toppled": SubResource("Animation_o2lil")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdrer"]
+size = Vector2(270, 190)
+
 [node name="Totum" type="Node2D" unique_id=199768820]
 script = ExtResource("1_81aao")
+state = null
 glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
+glyph_visible = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504332766]
 sprite_frames = SubResource("SpriteFrames_8286v")
@@ -153,7 +158,13 @@ autoplay = "default"
 libraries/ = SubResource("AnimationLibrary_o2lil")
 
 [node name="Timer" type="Timer" parent="." unique_id=306708604]
-wait_time = 10.0
 one_shot = true
 
+[node name="ToppledClickHitbox" type="Area2D" parent="." unique_id=934524609]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToppledClickHitbox" unique_id=1464041325]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_tdrer")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="input_event" from="ToppledClickHitbox" to="." method="_on_toppled_click_hitbox_input_event"]

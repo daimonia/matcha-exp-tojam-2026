@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
 [ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
+[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -13,12 +15,13 @@ script = ExtResource("1_hsi3f")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=182472964]
 
 [node name="HUD" parent="CanvasLayer" unique_id=1673044824 instance=ExtResource("1_bofkp")]
+mouse_filter = 2
 
 [node name="World" parent="." unique_id=997904528 instance=ExtResource("1_8r3iy")]
 position = Vector2(-3260, -2664)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1116750704]
-position = Vector2(938, 682)
+position = Vector2(635, 362)
 script = ExtResource("3_bq38n")
 max_speed = 1000.0
 zoom_speed = 10.0
@@ -29,25 +32,30 @@ hud = NodePath("../CanvasLayer/HUD")
 totums = [NodePath("Totum4"), NodePath("Totum3"), NodePath("Totum2"), NodePath("Totum")]
 
 [node name="Totum4" parent="TotumManager" unique_id=199768820 instance=ExtResource("6_j27tm")]
-position = Vector2(112.5, 117)
+z_index = 1
+position = Vector2(559, -2727)
 scale = Vector2(0.25, 0.25)
-state = null
-glyph_visible = null
+state = 0
+glyph_visible = false
 
 [node name="Totum3" parent="TotumManager" unique_id=1646026232 instance=ExtResource("6_j27tm")]
-position = Vector2(131.25, 136.5)
+z_index = 1
+position = Vector2(805, -2731)
 scale = Vector2(0.25, 0.25)
-state = null
-glyph_visible = null
+state = 0
+glyph_visible = false
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 instance=ExtResource("6_j27tm")]
-position = Vector2(140.625, 146.25)
+z_index = 1
+position = Vector2(797, -2823)
 scale = Vector2(0.25, 0.25)
-state = null
-glyph_visible = null
+state = 0
+glyph_visible = false
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 instance=ExtResource("6_j27tm")]
-position = Vector2(75, 78)
+z_index = 1
+position = Vector2(619, -2846)
 scale = Vector2(0.25, 0.25)
-state = null
-glyph_visible = null
+state = 0
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae")])
+glyph_visible = false

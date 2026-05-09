@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://4yyfoxcbjy4g"]
 
+[ext_resource type="PackedScene" uid="uid://c01ciu7681x1h" path="res://scenes/glyph_actions/glyph_action_compass.tscn" id="1_p6vcj"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_ppn0o"]
 [ext_resource type="Texture2D" uid="uid://dbn4bpo2l83cq" path="res://art/glyphs/glyph_compass.PNG" id="2_635gu"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_ppn0o")
 name = "Compass"
 texture = ExtResource("2_635gu")
+action_node = ExtResource("1_p6vcj")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"

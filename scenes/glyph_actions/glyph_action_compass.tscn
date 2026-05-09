@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c01ciu7681x1h"]
+
+[ext_resource type="Texture2D" uid="uid://bnu5dpl17wqo7" path="res://icon.svg" id="1_ywwy8"]
+[ext_resource type="Script" uid="uid://ba18lsufkmevg" path="res://scenes/glyph_actions/glyph_action_compass.gd" id="2_k7x7u"]
+
+[node name="GlyphActionCompass" type="Node2D" unique_id=74806801]
+script = ExtResource("2_k7x7u")
+
+[node name="Timer" type="Timer" parent="." unique_id=785671543]
+autostart = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352744675]
+texture = ExtResource("1_ywwy8")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
