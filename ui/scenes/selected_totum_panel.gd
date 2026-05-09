@@ -25,8 +25,8 @@ func set_totum(_totum: Totum) -> void:
             rects.append(child)
 
     for i in range(6):
-        var glyph = totum.glyphs.get(i)
-        if glyph == null:
+        if i > totum.glyphs.size() - 1:
             rects[i].texture = blank_face_texture
             continue
+        var glyph = totum.glyphs[i]
         rects[i].texture = glyph.texture
