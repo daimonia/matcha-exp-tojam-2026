@@ -43,7 +43,7 @@ size_flags_vertical = 3
 play_scene = ExtResource("2_h2yge")
 
 [node name="World" parent="Menu" unique_id=997904528 instance=ExtResource("2_0xm2m")]
-position = Vector2(-3581, -3795)
+position = Vector2(-4197, -3376)
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=39387055]
 unique_name_in_owner = true

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hktteom25w3a"]
 
 [ext_resource type="Script" uid="uid://dugug370s8iur" path="res://ui/scenes/totum_hotbar.gd" id="1_fr1n0"]
+[ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="3_0mnik"]
 [ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="4_kitk6"]
 
 [node name="TotumHotbar" type="Panel" unique_id=1538132659]
@@ -24,6 +25,11 @@ unique_name_in_owner = true
 position = Vector2(79, 81)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_kitk6")
+
+[node name="Totum" parent="." unique_id=199768820 instance=ExtResource("3_0mnik")]
+visible = false
+position = Vector2(75, 78)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -19,10 +19,11 @@ func _update_glyph():
 			sprite.texture = glyph.texture
 			add_child(sprite)
 
-func _spin_start():
+func spin_start():
 	#start the timer and run the spinning animation
 	timer.start()
 	animation_player.play("spin")
+	#print("spinning, I swears it, mistress")
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
@@ -33,4 +34,5 @@ func _process(_delta: float) -> void:
 func _on_timer_timeout() -> void:
 	#when the timer stops, also stop the spinning animation
 	animation_player.play("default")
+	print("done timin things")
 	
