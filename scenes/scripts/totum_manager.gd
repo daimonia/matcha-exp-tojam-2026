@@ -4,6 +4,7 @@ extends Node
 @export var hud: HUD
 @export var totums: Array[Totum]
 
+var selected_totum: Totum = null
 
 func _ready() -> void:
     var totum_hotbars = hud.get_totum_hotbar_items()
@@ -15,4 +16,16 @@ func _ready() -> void:
         totum.state_transitioned.connect(hotbar.update_totum_state)
 
         hotbar.drag_started.connect(totum.transition_state.bind(Totum.State.Dragging))
+        hotbar.drag_started.connect(_on_select_totum.bind(hotbar, totum))
         hotbar.drag_dropped.connect(totum.transition_state.bind(Totum.State.Dropped))
+        hotbar.drag_canceled.connect(totum.transition_state.bind(Totum.State.Holstered))
+
+
+func _on_select_totum(hotbar_item: TotumHotbar, totum: Totum) -> void:
+    selected_totum = totum
+
+    for item in hud.get_totum_hotbar_items():
+        item.is_selected = false
+
+    hotbar_item.is_selected = true
+    hud.set_selected_totum(totum)

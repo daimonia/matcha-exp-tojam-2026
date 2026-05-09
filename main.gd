@@ -19,3 +19,4 @@ func _on_main_menu_play_game() -> void:
 func _on_play_quit_to_main_menu() -> void:
     active_play_scene.queue_free()
     add_child(menu)
+    $Soundtrack.set_track(Soundtrack.Track.Layer1)
