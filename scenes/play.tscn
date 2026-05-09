@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="1_8r3iy"]
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
-[ext_resource type="Script" uid="uid://ckwcw8vd25grp" path="res://scenes/play.gd" id="1_hsi3f"]
+[ext_resource type="Script" uid="uid://ckwcw8vd25grp" path="res://scenes/scripts/play.gd" id="1_hsi3f"]
 [ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
@@ -20,3 +20,11 @@ position = Vector2(938, 682)
 script = ExtResource("3_bq38n")
 max_speed = 1000.0
 zoom_speed = 10.0
+
+[node name="TotumStateMachine1" type="Node" parent="." unique_id=1137852124]
+
+[node name="TotumStateMachine2" type="Node" parent="." unique_id=888001552]
+
+[node name="TotumStateMachine3" type="Node" parent="." unique_id=290669093]
+
+[node name="TotumStateMachine4" type="Node" parent="." unique_id=674482298]
