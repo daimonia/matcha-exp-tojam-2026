@@ -1,11 +1,18 @@
 extends Node2D
 
+class_name Play
+
+
+@onready var timer: Timer = $GameTimer
+@onready var hud: HUD = $CanvasLayer/HUD
 
 var soundtrack: Soundtrack
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass
+signal quit_to_main_menu
+
+
+func _process(_delta: float) -> void:
+    hud.set_remaining_time(timer.time_left)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -20,3 +27,12 @@ func _input(event: InputEvent) -> void:
                 soundtrack.set_track(Soundtrack.Track.Layer2)
             51:
                 soundtrack.set_track(Soundtrack.Track.Layer3)
+
+
+func _on_game_timer_timeout() -> void:
+    hud.hide()
+    $CanvasLayer/GameEnd.show()
+
+
+func _on_game_end_go_to_main_menu() -> void:
+    quit_to_main_menu.emit()

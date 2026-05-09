@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bm5be07planhu"]
+
+[ext_resource type="Script" uid="uid://ddgyj5wbqkd0p" path="res://ui/scenes/game_end.gd" id="1_3li1d"]
+
+[node name="GameEnd" type="Control" unique_id=118341594]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3li1d")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=167745210]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer" unique_id=1843667676]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer" unique_id=587940164]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer" unique_id=1839290677]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1840159885]
+layout_mode = 2
+text = "hooray!"
+horizontal_alignment = 1
+
+[node name="go to menu" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1907299816]
+layout_mode = 2
+text = "play again"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/go to menu" to="." method="_on_go_to_menu_pressed"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c301e40sfv8jb"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_272bh"]
+[ext_resource type="Script" uid="uid://dctpgp3klhn4r" path="res://main.gd" id="1_272bh"]
 [ext_resource type="PackedScene" uid="uid://cmhajaaxjnr7x" path="res://ui/scenes/main_menu.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://dfpseikim241k" path="res://scenes/play.tscn" id="2_h2yge"]
@@ -34,7 +34,7 @@ Vector2i(-1, -1): {
 script = ExtResource("1_272bh")
 play_scene = ExtResource("2_h2yge")
 
-[node name="Menu" type="Node" parent="." unique_id=847948923]
+[node name="Menu" type="Node" parent="." unique_id=1323906835]
 unique_name_in_owner = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Menu" unique_id=127195962]

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cakkr65wefn1y" path="res://scenes/world.tscn" id="1_8r3iy"]
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
 [ext_resource type="Script" uid="uid://ckwcw8vd25grp" path="res://scenes/scripts/play.gd" id="1_hsi3f"]
+[ext_resource type="PackedScene" uid="uid://bm5be07planhu" path="res://ui/scenes/game_end.tscn" id="2_efqae"]
 [ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
 [ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
@@ -13,6 +14,9 @@
 script = ExtResource("1_hsi3f")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=182472964]
+
+[node name="GameEnd" parent="CanvasLayer" unique_id=118341594 instance=ExtResource("2_efqae")]
+visible = false
 
 [node name="HUD" parent="CanvasLayer" unique_id=1673044824 instance=ExtResource("1_bofkp")]
 mouse_filter = 2
@@ -63,3 +67,10 @@ world = NodePath("../../World")
 state = 0
 glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae")])
 glyph_visible = false
+
+[node name="GameTimer" type="Timer" parent="." unique_id=467436725]
+wait_time = 180.0
+autostart = true
+
+[connection signal="go_to_main_menu" from="CanvasLayer/GameEnd" to="." method="_on_game_end_go_to_main_menu"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
