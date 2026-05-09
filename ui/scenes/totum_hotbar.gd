@@ -1,5 +1,3 @@
-@tool
-
 class_name TotumHotbar
 
 extends Control
@@ -23,14 +21,14 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+    if Engine.is_editor_hint():
+        # running as a tool script, so don't do anything wild
+        return
+
     if is_selected:
         $Highlight.show()
     else:
         $Highlight.hide()
-
-    if Engine.is_editor_hint():
-        # running as a tool script, so don't do anything wild
-        return
 
 
 func _input(event: InputEvent) -> void:

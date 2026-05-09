@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://dmffba3ohvaqa"]
 
+[ext_resource type="PackedScene" uid="uid://rifni7qqv4b" path="res://scenes/glyph_actions/glyph_action_burst.tscn" id="1_f26kk"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_k172j"]
 [ext_resource type="Texture2D" uid="uid://bavxpxi1gupp2" path="res://art/glyphs/glyph_burst.PNG" id="2_xe2cn"]
 
@@ -7,4 +8,5 @@
 script = ExtResource("1_k172j")
 name = "Burst"
 texture = ExtResource("2_xe2cn")
+action_node = ExtResource("1_f26kk")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"

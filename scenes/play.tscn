@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
-[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
+[ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="9_efqae"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -65,7 +65,7 @@ position = Vector2(619, -2846)
 scale = Vector2(0.25, 0.25)
 world = NodePath("../../World")
 state = 0
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae")])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae")])
 glyph_visible = false
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]

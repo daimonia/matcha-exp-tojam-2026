@@ -16,7 +16,7 @@ func _ready() -> void:
         var cell = current_layer.get_cell_at_global_position(global_position)
         #check if there's a cell where the totum is and if so, deal damage
         if cell:
-            #cell.get_cell_at_local_position(cell).take_damage(1000)
+            current_layer.get_cell_at_position(cell.coords).take_damage(1000)
             #deal damage to the layer below
             current_layer.layer_below.get_cell_at_position(cell.coords).take_damage(1000)
             #deal damage to the cardinal directions on same layer
