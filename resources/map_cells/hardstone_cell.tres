@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://ddtybhhs4ycm3"]
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://ddtybhhs4ycm3"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_7pxc7"]
-[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_sjlow"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_sjlow"]
 [ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="2_upa0t"]
 [ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="3_mv7s8"]
 [ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="4_synr4"]
@@ -11,8 +11,9 @@
 
 [resource]
 script = ExtResource("2_sjlow")
-name = "Hard Stone"
+name = "HardStone"
 hp = 10
 dmg = 4
+cell_type = 4
 rewards = Array[ExtResource("1_7pxc7")]([ExtResource("2_upa0t"), ExtResource("3_mv7s8"), ExtResource("4_synr4"), ExtResource("5_8lgft"), ExtResource("6_7u53y"), ExtResource("7_elhyl")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

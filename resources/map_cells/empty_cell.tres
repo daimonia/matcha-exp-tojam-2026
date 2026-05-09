@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://c2rg21u241st2"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_tgpir"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_hcyrc"]
+
+[resource]
+script = ExtResource("2_hcyrc")
+name = "Empty"
+hp = 10000
+metadata/_custom_type_script = "uid://borxkduvhl3kr"

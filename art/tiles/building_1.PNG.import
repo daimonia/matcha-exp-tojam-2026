@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://55x2hihtxm3p"
-path="res://.godot/imported/hard_stone_1.PNG-2a2c8046d1e57696f5d377d34b7e862d.ctex"
+uid="uid://bbqcf132mioau"
+path="res://.godot/imported/building_1.PNG-9087c7875178a6f96d2aec6dc8d05c39.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/tiles/hard_stone_1.PNG"
-dest_files=["res://.godot/imported/hard_stone_1.PNG-2a2c8046d1e57696f5d377d34b7e862d.ctex"]
+source_file="res://art/tiles/building_1.PNG"
+dest_files=["res://.godot/imported/building_1.PNG-9087c7875178a6f96d2aec6dc8d05c39.ctex"]
 
 [params]
 

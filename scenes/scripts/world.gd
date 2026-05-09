@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
         var pos = get_local_mouse_position()
         for layer in layers:
             var cell = layer.get_cell_at_local_position(pos)
-            if cell == null or cell.type == WorldLayer.TileCellType.Empty:
+            if cell == null or cell.cell_type == MapCellDefinition.CellType.Empty:
                 continue
             cell.take_damage(10)
             print(layer.name, cell)

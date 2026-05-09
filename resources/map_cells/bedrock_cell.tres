@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://dxotfbssxfqrv"]
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://dxotfbssxfqrv"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_0qho4"]
-[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_wb80d"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_wb80d"]
 
 [resource]
 script = ExtResource("2_wb80d")
 name = "Bedrock"
 hp = 10000
+cell_type = 5
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="MapCell" format=3 uid="uid://dcspquemevly7"]
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://dcspquemevly7"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_kxtey"]
 [ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="2_oiifj"]
-[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell.gd" id="2_p12ed"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_p12ed"]
 [ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="3_r1r6v"]
 [ext_resource type="Resource" uid="uid://bu0s6cpm7xtws" path="res://resources/glyphs/ravine_glyph.tres" id="4_bek2s"]
 [ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="5_buq22"]
@@ -13,5 +13,6 @@ script = ExtResource("2_p12ed")
 name = "Grass"
 hp = 3
 dmg = 2
+cell_type = 1
 rewards = Array[ExtResource("1_kxtey")]([ExtResource("2_oiifj"), ExtResource("3_r1r6v"), ExtResource("4_bek2s"), ExtResource("5_buq22"), ExtResource("6_6ngl5")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"
