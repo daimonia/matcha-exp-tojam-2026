@@ -24,7 +24,7 @@ func _ready() -> void:
             layer.layer_below = layers[i+1]
 
 func _input(event: InputEvent) -> void:
-    if event is InputEventMouseButton and event.double_click:
+    if event is InputEventMouseButton and event.alt_pressed and event.is_pressed():
         var pos = get_global_mouse_position()
         for layer in layers:
             var cell = layer.get_cell_at_global_position(pos)

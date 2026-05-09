@@ -27,6 +27,8 @@ enum State {
 
 var facing_glyph_index: int = 0
 
+var already_attacked = false
+
 signal state_transitioned
 
 func _ready() -> void:
@@ -61,6 +63,8 @@ func transition_state(next_state: State) -> void:
             spin_start()
         State.Toppled:
             topple()
+        State.Attacking:
+            already_attacked = false
         _:
             print('%s: no state transition logic' % name)
 
@@ -76,9 +80,13 @@ func topple():
 
 
 func attack():
+    if state != State.Toppled or already_attacked:
+        return
+
     var facing_glyph = glyphs[facing_glyph_index]
 
     if facing_glyph.action_node:
+        already_attacked = true
         var attack_node: BaseGlyphAction = facing_glyph.action_node.instantiate()
         assert(attack_node is BaseGlyphAction, "action node must inherit BaseGlyphAction")
         attack_node.current_layer = get_current_layer()
