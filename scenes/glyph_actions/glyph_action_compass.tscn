@@ -9,7 +9,7 @@ script = ExtResource("2_k7x7u")
 [node name="Timer" type="Timer" parent="." unique_id=785671543]
 autostart = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=352744675]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2137163241]
 texture = ExtResource("1_ywwy8")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

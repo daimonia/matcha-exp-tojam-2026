@@ -25,9 +25,9 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton and event.double_click:
-        var pos = get_local_mouse_position()
+        var pos = get_global_mouse_position()
         for layer in layers:
-            var cell = layer.get_cell_at_local_position(pos)
+            var cell = layer.get_cell_at_global_position(pos)
             if cell == null or cell.cell_type == MapCellDefinition.CellType.Empty:
                 continue
             cell.take_damage(10)

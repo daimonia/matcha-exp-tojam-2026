@@ -11,6 +11,8 @@ enum State {
     Attacking,     #will go back to Holstered once attack ends
 }
 
+@export var world: World
+
 @export var state = State.Holstered:
     set(value):
         state = value
@@ -77,12 +79,25 @@ func attack():
     var facing_glyph = glyphs[facing_glyph_index]
 
     if facing_glyph.action_node:
-        var attack_node = facing_glyph.action_node.instantiate()
+        var attack_node: BaseGlyphAction = facing_glyph.action_node.instantiate()
+        assert(attack_node is BaseGlyphAction, "action node must inherit BaseGlyphAction")
+        attack_node.current_layer = get_current_layer()
+
         add_child(attack_node)
         attack_node.connect("attack_ended", transition_state.bind(State.Holstered))
         transition_state(State.Attacking)
     else:
         transition_state(State.Holstered)
+
+
+func get_current_layer() -> WorldLayer:
+    for layer in world.layers:
+        var cell = layer.get_cell_at_global_position(global_position)
+        if cell != null and cell.cell_type != MapCellDefinition.CellType.Empty:
+            return layer
+
+    assert(false, "failed to locate layer at global position %v" % global_position)
+    return null
 
 
 func _process(_delta: float) -> void:

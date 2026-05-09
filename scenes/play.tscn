@@ -31,31 +31,35 @@ script = ExtResource("5_65v2a")
 hud = NodePath("../CanvasLayer/HUD")
 totums = [NodePath("Totum4"), NodePath("Totum3"), NodePath("Totum2"), NodePath("Totum")]
 
-[node name="Totum4" parent="TotumManager" unique_id=199768820 instance=ExtResource("6_j27tm")]
+[node name="Totum4" parent="TotumManager" unique_id=199768820 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(559, -2727)
 scale = Vector2(0.25, 0.25)
+world = NodePath("../../World")
 state = 0
 glyph_visible = false
 
-[node name="Totum3" parent="TotumManager" unique_id=1646026232 instance=ExtResource("6_j27tm")]
+[node name="Totum3" parent="TotumManager" unique_id=1646026232 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(805, -2731)
 scale = Vector2(0.25, 0.25)
+world = NodePath("../../World")
 state = 0
 glyph_visible = false
 
-[node name="Totum2" parent="TotumManager" unique_id=1961648608 instance=ExtResource("6_j27tm")]
+[node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(797, -2823)
 scale = Vector2(0.25, 0.25)
+world = NodePath("../../World")
 state = 0
 glyph_visible = false
 
-[node name="Totum" parent="TotumManager" unique_id=1574673616 instance=ExtResource("6_j27tm")]
+[node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(619, -2846)
 scale = Vector2(0.25, 0.25)
+world = NodePath("../../World")
 state = 0
 glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae")])
 glyph_visible = false

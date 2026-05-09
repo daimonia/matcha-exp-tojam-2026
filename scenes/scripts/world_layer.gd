@@ -78,3 +78,7 @@ func get_cell_at_position(pos: Vector2) -> MapCellDefinition.MapCellInstance:
 func get_cell_at_local_position(pos: Vector2i) -> MapCellDefinition.MapCellInstance:
     var tile_pos = local_to_map(pos)
     return get_cell_at_position(tile_pos)
+
+
+func get_cell_at_global_position(pos: Vector2i) -> MapCellDefinition.MapCellInstance:
+    return get_cell_at_local_position(to_local(pos))
