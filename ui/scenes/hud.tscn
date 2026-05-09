@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://hktteom25w3a" path="res://ui/scenes/totum_hotbar.tscn" id="1_aydmx"]
 [ext_resource type="Script" uid="uid://dkaeq3bhx4kvs" path="res://ui/scenes/hud.gd" id="1_itb64"]
+[ext_resource type="PackedScene" uid="uid://cgtpjra376yrv" path="res://ui/scenes/selected_totum_panel.tscn" id="3_11rbf"]
 
 [node name="HUD" type="Control" unique_id=1673044824 node_paths=PackedStringArray("totum_hotbar_items")]
 layout_mode = 3
@@ -63,7 +64,6 @@ theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer" unique_id=883219538]
 layout_mode = 2
@@ -93,21 +93,20 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "rewards panel"
 
-[node name="SelectedClaybladePanel" type="Panel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1199136350]
-custom_minimum_size = Vector2(0, 256)
+[node name="Control" type="Control" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1319384178]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/SelectedClaybladePanel" unique_id=1534323731]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -55.5
-offset_top = -11.5
-offset_right = 55.5
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "clayblade panel"
+[node name="Panel" type="PanelContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1971287783]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=228242728]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SelectedTotumPanel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1014020078 instance=ExtResource("3_11rbf")]
+layout_mode = 2
