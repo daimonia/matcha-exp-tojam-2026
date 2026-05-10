@@ -43,12 +43,12 @@ func _ready() -> void:
             "failed to load MapCellDefinition for tile %s: unknown tile_type %s" % [tile, tile_type]
         )
 
-        set_cell_at_position(coords, MapCellDefinition.MapCellInstance.from_definition(definition))
+        set_cell_at_position(coords, MapCellDefinition.MapCellInstance.from_definition(self, definition))
 
 
 func _on_cell_destroyed(cell: MapCellDefinition.MapCellInstance) -> void:
     tile_map_layer_world.set_cell(cell.coords)  # clear the cell in the tile map layer
-    set_cell_at_position(cell.coords, MapCellDefinition.MapCellInstance.new(MapCellDefinition.CellType.Empty))
+    set_cell_at_position(cell.coords, MapCellDefinition.MapCellInstance.new(self, MapCellDefinition.CellType.Empty))
     cell.disconnect("destroyed", _on_cell_destroyed)
 
     map_cell_destroyed.emit(cell)
