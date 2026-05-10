@@ -44,23 +44,32 @@ totums = [NodePath("Totum4"), NodePath("Totum3"), NodePath("Totum2"), NodePath("
 [node name="Totum4" parent="TotumManager" unique_id=199768820 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(559, -2727)
+mass = 0.1
 world = NodePath("../../World")
+pull_stiffness = 90.0
+pull_damping = 6.0
 
 [node name="Totum3" parent="TotumManager" unique_id=1646026232 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(805, -2731)
+mass = 0.1
 world = NodePath("../../World")
+pull_stiffness = 90.0
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(797, -2823)
+mass = 0.1
 world = NodePath("../../World")
+pull_stiffness = 90.0
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(619, -2846)
+mass = 0.1
 world = NodePath("../../World")
 glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("10_6fc6i"), ExtResource("11_hogub"), ExtResource("8_efqae"), ExtResource("13_ogtmt"), ExtResource("14_cd23g")])
+pull_stiffness = 90.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]
 wait_time = 180.0

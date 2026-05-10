@@ -15,7 +15,6 @@ size = Vector2(165.5, 114)
 gravity_scale = 0.0
 script = ExtResource("1_81aao")
 glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
-mouse_drag_acceleration = 15.0
 
 [node name="Timer" type="Timer" parent="." unique_id=306708604]
 one_shot = true
