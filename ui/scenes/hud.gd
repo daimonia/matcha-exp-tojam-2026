@@ -14,8 +14,11 @@ class_name HUD
 signal picked_all_rewards
 
 
-func populate_rewards(rewards: Array[Glyph]):
-    rewards_panel.populate_rewards(rewards)
+func add_rewards(rewards: Array[Glyph]):
+    rewards_panel.add_rewards(rewards)
+
+func get_current_rewards():
+    return rewards_panel.rewards
 
 
 func get_totum_hotbar_items() -> Array[TotumHotbar]:
@@ -34,7 +37,7 @@ func set_selected_totum(totum: Totum) -> void:
 
 
 func _on_rewards_panel_finished_picking() -> void:
-    populate_rewards([])
+    rewards_panel.reset_rewards()
     picked_all_rewards.emit()
 
 

@@ -66,6 +66,7 @@ signal facing_glyph_updated
 signal buff(totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable)
 signal current_hp_changed
 signal max_hp_changed
+signal current_depth_changed
 
 ## scuffed way of communicating up the tree that somebody won the game
 signal won_game
@@ -173,8 +174,9 @@ func update_collision_mask(delta: float):
 func set_current_layer_depth(depth: int):
     current_layer_depth = depth
     collision_mask = TOTUM_COLLISION_MASK | 1 << (depth - 1)
-    print('%s: collision_mask = %o' % [name, collision_mask])
     hang_time_remaining = 0.0
+
+    current_depth_changed.emit(depth)
 
 func spin_start():
     #start the timer and run the spinning animation

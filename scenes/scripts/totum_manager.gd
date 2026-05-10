@@ -5,8 +5,10 @@ extends Node
 @export var totums: Array[Totum]
 
 signal won_game
+signal deepest_layer_changed
 
 var selected_totum: Totum = null
+var deepest_layer := 1
 
 func _ready() -> void:
     var totum_hotbars = hud.get_totum_hotbar_items()
@@ -18,6 +20,7 @@ func _ready() -> void:
         totum.state_transitioned.connect(hotbar.update_totum_state)
         totum.facing_glyph_updated.connect(hotbar.update_totum_glyph)
         totum.buff.connect(_on_buff_triggered)
+        totum.current_depth_changed.connect(_on_totum_current_depth_changed)
 
         hotbar.current_totum_max_hp = totum.max_hp
         hotbar.current_totum_hp = totum.hp
@@ -45,3 +48,9 @@ func _on_select_totum(hotbar_item: TotumHotbar, totum: Totum) -> void:
 
     hotbar_item.is_selected = true
     hud.set_selected_totum(totum)
+
+
+func _on_totum_current_depth_changed(depth: int) -> void:
+    if depth > deepest_layer:
+        deepest_layer = depth
+        deepest_layer_changed.emit(deepest_layer)

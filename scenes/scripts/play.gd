@@ -55,4 +55,4 @@ func end_game(did_win: bool) -> void:
 
 
 func _on_world_map_cell_destroyed(cell: MapCellDefinition.MapCellInstance) -> void:
-    hud.populate_rewards(cell.rewards)
+    hud.add_rewards(cell.rewards)

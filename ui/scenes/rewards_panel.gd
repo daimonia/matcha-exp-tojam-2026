@@ -15,14 +15,16 @@ signal finished_picking
 var num_picked: int = 0
 
 func _ready():
-    # trigger setter to update our awesome graphix
-    populate_rewards(rewards)
+    redraw_rewards()
 
 ## populate a fresh set of rewards.
-func populate_rewards(_rewards: Array[Glyph]):
-    rewards = _rewards
-    num_picked = 0
+func add_rewards(_rewards: Array[Glyph]):
+    rewards += _rewards
+    if rewards.size() > Totum.NUM_FACES:
+        rewards = rewards.slice(rewards.size() - Totum.NUM_FACES, rewards.size())
+    redraw_rewards()
 
+func redraw_rewards():
     for child in draggable_rewards_container.get_children():
         child.queue_free()
 
@@ -39,6 +41,12 @@ func populate_rewards(_rewards: Array[Glyph]):
     else:
         audio_player.play()
         show()
+
+
+func reset_rewards():
+    rewards = []
+    num_picked = 0
+    redraw_rewards()
 
 
 func reward_used(draggable: DraggableReward, _glyph: Glyph):
