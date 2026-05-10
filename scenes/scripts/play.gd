@@ -56,3 +56,7 @@ func end_game(did_win: bool) -> void:
 
 func _on_world_map_cell_destroyed(cell: MapCellDefinition.MapCellInstance) -> void:
     hud.add_rewards(cell.rewards)
+
+
+func _on_totum_manager_totum_died() -> void:
+    end_game(false)

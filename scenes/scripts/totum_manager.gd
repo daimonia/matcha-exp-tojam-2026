@@ -5,6 +5,7 @@ extends Node
 @export var totums: Array[Totum]
 
 signal won_game
+signal totum_died
 signal deepest_layer_changed
 
 var selected_totum: Totum = null
@@ -26,6 +27,7 @@ func _ready() -> void:
         hotbar.current_totum_hp = totum.hp
         totum.max_hp_changed.connect(hotbar.update_totum_max_hp)
         totum.current_hp_changed.connect(hotbar.update_totum_hp)
+        totum.current_hp_changed.connect(_on_totum_current_hp_changed)
 
         totum.won_game.connect(func(): won_game.emit())
 
@@ -33,6 +35,11 @@ func _ready() -> void:
         hotbar.drag_started.connect(_on_select_totum.bind(hotbar, totum))
         hotbar.drag_dropped.connect(totum.transition_state.bind(Totum.State.Dropped))
         hotbar.drag_canceled.connect(totum.transition_state.bind(Totum.State.Holstered))
+
+
+func _on_totum_current_hp_changed(hp: int):
+    if hp <= 0:
+        totum_died.emit()
 
 
 func _on_buff_triggered(_triggering_totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable):

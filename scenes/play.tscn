@@ -73,5 +73,6 @@ autostart = true
 
 [connection signal="go_to_main_menu" from="CanvasLayer/GameEnd" to="." method="_on_game_end_go_to_main_menu"]
 [connection signal="map_cell_destroyed" from="World" to="." method="_on_world_map_cell_destroyed"]
+[connection signal="totum_died" from="TotumManager" to="." method="_on_totum_manager_totum_died"]
 [connection signal="won_game" from="TotumManager" to="." method="_on_totum_manager_won_game"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
