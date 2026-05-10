@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://cjsdep471csh4"]
 
+[ext_resource type="PackedScene" uid="uid://cg1vvk4l8u5tm" path="res://scenes/glyph_actions/glyph_action_heal.tscn" id="1_bcjgl"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_w2f10"]
 [ext_resource type="Texture2D" uid="uid://08jp0nh4siql" path="res://art/glyphs/glyph_heal.PNG" id="2_ku7ac"]
 
@@ -7,4 +8,6 @@
 script = ExtResource("1_w2f10")
 name = "Heal"
 texture = ExtResource("2_ku7ac")
+description = "Heals all clayblades 5 HP"
+action_node = ExtResource("1_bcjgl")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"
