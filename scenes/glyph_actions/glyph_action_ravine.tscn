@@ -5,43 +5,43 @@
 [ext_resource type="AudioStream" uid="uid://dwuvdo3rgtkh0" path="res://sfx/attack_out_1.wav" id="3_b48tf"]
 [ext_resource type="AudioStream" uid="uid://b2dh3vr8gk2wy" path="res://sfx/attack_out_2.wav" id="4_6uu7o"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlp4w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf6ec"]
 atlas = ExtResource("2_j1prh")
-region = Rect2(1280, 256, 256, 256)
+region = Rect2(0, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_s54vf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1prh"]
 atlas = ExtResource("2_j1prh")
-region = Rect2(1536, 256, 256, 256)
+region = Rect2(256, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uqdin"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_b48tf"]
 atlas = ExtResource("2_j1prh")
-region = Rect2(1792, 256, 256, 256)
+region = Rect2(512, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m4lgt"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uu7o"]
 atlas = ExtResource("2_j1prh")
-region = Rect2(2304, 256, 256, 256)
+region = Rect2(768, 256, 256, 256)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_a154m"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tpm8"]
 atlas = ExtResource("2_j1prh")
-region = Rect2(2048, 256, 256, 256)
+region = Rect2(1024, 256, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_85sva"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rlp4w")
+"texture": SubResource("AtlasTexture_lf6ec")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_s54vf")
+"texture": SubResource("AtlasTexture_j1prh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_uqdin")
+"texture": SubResource("AtlasTexture_b48tf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m4lgt")
+"texture": SubResource("AtlasTexture_6uu7o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_a154m")
+"texture": SubResource("AtlasTexture_5tpm8")
 }],
 "loop": false,
 "name": &"default",
