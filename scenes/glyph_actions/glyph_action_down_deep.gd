@@ -1,42 +1,32 @@
 extends BaseGlyphAction
 
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var rng = RandomNumberGenerator.new()
-#choose a direction to bounce in
-var cardinal: int = rng.randi_range(0,3)
-#determine the number of times to bounce
+#choose a number of tiles to dig down
 var times: int = rng.randi_range(1,3)
 
-var damage_directions: Array[Vector2] = [
-     Vector2(0,1),
-     Vector2(0,-1),
-     Vector2(-1,0),
-     Vector2(1,0),
-    ]
+#var damage_directions: Array[Vector2] = [Vector2(0,1),Vector2(0,-1),Vector2(-1,0),Vector2(1,0)]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     sprite.play()
     audio_player.play()
-    
-    if current_layer:
-        var cell = current_layer.get_cell_at_global_position(global_position)
 
+    if current_layer: #passed by the totum when it attacks
+        var cell = current_layer.get_cell_at_global_position(global_position)
         #check if there's a cell where the totum is and if so, deal damage
         if cell:
-            current_layer.get_cell_at_position(cell.coords).take_damage(1000)
-            #deal damage to the layer below
-            #current_layer.layer_below.get_cell_at_position(cell.coords).take_damage(1000)
-            #deal damage to the cardinal directions on same layer
+            #deal damage to the same tile on each layer down for each time generated
+            var temp = current_layer.get_cell_at_position(cell.coords)
             for time in times:
-                var temp = current_layer.get_cell_at_position(cell.coords + (damage_directions[cardinal]*time*2))
                 if temp:
                     temp.take_damage(1000)
+                    temp = current_layer.layer_below.get_cell_at_position(cell.coords)
     else:
         push_warning('%s: no current layer specified' % name)
-
 
 
 func _on_timer_timeout() -> void:
