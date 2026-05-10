@@ -5,24 +5,37 @@
 [ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="3_ba5jr"]
 [ext_resource type="PackedScene" uid="uid://dhj2wtlf0spi3" path="res://scenes/animated_totum_sprite.tscn" id="4_q7sjv"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdrer"]
-size = Vector2(270, 190)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q7sjv"]
+size = Vector2(171, 158)
 
-[node name="Totum" type="Node2D" unique_id=199768820]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdrer"]
+size = Vector2(165.5, 114)
+
+[node name="Totum" type="RigidBody2D" unique_id=50829409]
+gravity_scale = 0.0
 script = ExtResource("1_81aao")
 glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])
-
-[node name="AnimatedTotum" parent="." unique_id=2146667746 instance=ExtResource("4_q7sjv")]
-animation = &"default"
+mouse_drag_acceleration = 15.0
 
 [node name="Timer" type="Timer" parent="." unique_id=306708604]
 one_shot = true
 
+[node name="AnimatedTotum" parent="." unique_id=2146667746 instance=ExtResource("4_q7sjv")]
+scale = Vector2(0.5, 0.5)
+animation = &"spin"
+
+[node name="ActivePhysicsHitbox" type="CollisionShape2D" parent="." unique_id=239699794]
+position = Vector2(3.5, -1)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_q7sjv")
+
 [node name="ToppledClickHitbox" type="Area2D" parent="." unique_id=934524609]
+scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ToppledClickHitbox" unique_id=1464041325]
-position = Vector2(0, -7)
+position = Vector2(-6.75, 19)
 shape = SubResource("RectangleShape2D_tdrer")
+debug_color = Color(0.32543376, 0.5500389, 0.79392844, 0.41960785)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="ToppledClickHitbox" to="." method="_on_toppled_click_hitbox_input_event"]

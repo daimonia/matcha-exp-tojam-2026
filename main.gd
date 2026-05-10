@@ -3,6 +3,7 @@ extends Node2D
 @export var play_scene: PackedScene
 
 @onready var menu: Node = %Menu
+@onready var audio_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var active_play_scene: Node
 
@@ -14,6 +15,7 @@ func _on_main_menu_play_game() -> void:
 
     remove_child(menu)
     add_child(active_play_scene)
+    audio_player.play()
 
 
 func _on_play_quit_to_main_menu() -> void:

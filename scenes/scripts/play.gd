@@ -18,8 +18,6 @@ func _process(_delta: float) -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
     if event is InputEventKey:
-        print(event.keycode)
-
         match event.physical_keycode:
             49:
                 soundtrack.set_track(Soundtrack.Track.Layer1)

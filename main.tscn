@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://4hnx0npihc77" path="res://music/clayblade_demo_layer2.wav" id="5_7mycd"]
 [ext_resource type="AudioStream" uid="uid://cl0y2bj01jjsk" path="res://music/clayblade_demo_layer3.wav" id="6_272bh"]
 [ext_resource type="Script" uid="uid://cvw4g15bpsxnx" path="res://soundtrack.gd" id="7_272bh"]
+[ext_resource type="AudioStream" uid="uid://dj2b0q47ccwgf" path="res://sfx/let_it_rip.wav" id="9_4c57u"]
+[ext_resource type="AudioStream" uid="uid://dv6pyxu67q2et" path="res://sfx/throw_thine_clayblade.wav" id="10_efxa6"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_5vw27"]
 clip_count = 3
@@ -29,6 +31,12 @@ Vector2i(-1, -1): {
 "to_time": 0
 }
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_dg77c"]
+streams_count = 2
+stream_0/stream = ExtResource("9_4c57u")
+stream_0/weight = 4.721
+stream_1/stream = ExtResource("10_efxa6")
 
 [node name="Main" type="Node2D" unique_id=714784745]
 script = ExtResource("1_272bh")
@@ -52,5 +60,8 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamInteractive_5vw27")
 autoplay = true
 script = ExtResource("7_272bh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=931265988]
+stream = SubResource("AudioStreamRandomizer_dg77c")
 
 [connection signal="play_game" from="Menu/CanvasLayer/MainMenu" to="." method="_on_main_menu_play_game"]

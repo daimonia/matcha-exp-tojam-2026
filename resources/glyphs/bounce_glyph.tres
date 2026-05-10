@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://btkr0apy2x3h3"]
 
-[ext_resource type="PackedScene" uid="uid://b3lnqwo2urac8" path="res://scenes/glyph_actions/glyph_action_bounce.tscn" id="1_cf7un"]
+[ext_resource type="PackedScene" path="res://scenes/glyph_actions/glyph_action_bounce.tscn" id="1_cf7un"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_wx6p0"]
 [ext_resource type="Texture2D" uid="uid://1i6ijblqgn81" path="res://art/glyphs/glyph_bounce.PNG" id="2_wx6p0"]
 

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bu7ociqxvefl7"]
+
+[ext_resource type="Script" uid="uid://l0gw88i1lflp" path="res://scenes/chloe_debug_land.gd" id="1_2n6eh"]
+[ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="1_grcul"]
+
+[node name="ChloeDebugLand" type="Node2D" unique_id=2025233851]
+script = ExtResource("1_2n6eh")
+
+[node name="Totum" parent="." unique_id=50829409 instance=ExtResource("1_grcul")]
+mouse_drag_acceleration = 15.0
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=299350785]
