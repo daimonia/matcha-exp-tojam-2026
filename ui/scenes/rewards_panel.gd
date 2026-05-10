@@ -21,7 +21,19 @@ func _ready():
 func add_rewards(_rewards: Array[Glyph]):
     rewards += _rewards
     if rewards.size() > Totum.NUM_FACES:
-        rewards = rewards.slice(rewards.size() - Totum.NUM_FACES, rewards.size())
+        var new_rewards: Array[Glyph] = []
+
+        for reward in rewards:
+            if reward.name == "Goat Key":
+                new_rewards.append(reward)
+
+        if new_rewards.size() >= Totum.NUM_FACES:
+            rewards = new_rewards
+        else:
+            while new_rewards.size() < Totum.NUM_FACES:
+                new_rewards.append(rewards.pop_front())
+
+        rewards = new_rewards
     redraw_rewards()
 
 func redraw_rewards():
