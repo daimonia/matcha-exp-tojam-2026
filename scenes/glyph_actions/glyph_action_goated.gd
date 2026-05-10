@@ -30,10 +30,13 @@ func _ready() -> void:
 
 func on_goat(totum: Totum):
     var goatsCollected: int = 0
+    #check if the entire teetotum is covered in goat glyphs
     for glyph in totum.glyphs:
-        if glyph.name == "Goat Key":
+        #check if there's a glyph and if that glyph is a goat
+        if (glyph != null) && (glyph.name == "Goat Key"):
             goatsCollected += 1
-    if goatsCollected == totum.glyphs.size():
+    if goatsCollected == totum.glyphs.size(): 
+        #size should be 6. It's not hard coded here so I don't crash things by accident
         print("you won the game! gg")
 
 func _on_timer_timeout() -> void:
