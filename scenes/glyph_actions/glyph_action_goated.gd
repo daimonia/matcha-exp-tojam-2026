@@ -35,6 +35,7 @@ func on_goat(totum: Totum):
         #check if there's a glyph and if that glyph is a goat
         if (glyph != null) && (glyph.name == "Goat Key"):
             goatsCollected += 1
+            print("goats collected: " + str(goatsCollected) + " / " + str(totum.glyphs.size()))
     if goatsCollected == totum.glyphs.size(): 
         #size should be 6. It's not hard coded here so I don't crash things by accident
         print("you won the game! gg")
