@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_4ldb0"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_o07qe"]
-[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="2_yl65j"]
 [ext_resource type="Resource" uid="uid://dfxxdqa5x7s2k" path="res://resources/glyphs/machine_gun_glyph.tres" id="3_tdrdo"]
 [ext_resource type="Resource" uid="uid://bu0s6cpm7xtws" path="res://resources/glyphs/ravine_glyph.tres" id="4_o5rjk"]
-[ext_resource type="Resource" uid="uid://cka0a2gcx00eo" path="res://resources/glyphs/walk_glyph.tres" id="5_t7kj7"]
 
 [resource]
 script = ExtResource("2_o07qe")
@@ -13,5 +11,5 @@ name = "Dirt"
 hp = 5
 dmg = 2
 cell_type = 3
-rewards = Array[ExtResource("1_4ldb0")]([ExtResource("2_yl65j"), ExtResource("3_tdrdo"), ExtResource("4_o5rjk"), ExtResource("5_t7kj7")])
+rewards = Array[ExtResource("1_4ldb0")]([ExtResource("3_tdrdo"), ExtResource("4_o5rjk")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

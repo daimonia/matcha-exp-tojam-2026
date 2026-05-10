@@ -1,12 +1,14 @@
 [gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://cect3bvhqb57d"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_gfk47"]
+[ext_resource type="Resource" uid="uid://wde83rpq2g8l" path="res://resources/glyphs/up_out_glyph.tres" id="2_7p6kl"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_b6nqc"]
 
 [resource]
 script = ExtResource("2_b6nqc")
 name = "Sand"
 hp = 10
-dmg = 4
+dmg = 3
 cell_type = 4
+rewards = Array[ExtResource("1_gfk47")]([ExtResource("2_7p6kl")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

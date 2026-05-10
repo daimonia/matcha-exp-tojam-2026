@@ -4,16 +4,14 @@
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_sjlow"]
 [ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="2_upa0t"]
 [ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="3_mv7s8"]
-[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="4_synr4"]
 [ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="5_8lgft"]
 [ext_resource type="Resource" uid="uid://bu0s6cpm7xtws" path="res://resources/glyphs/ravine_glyph.tres" id="6_7u53y"]
-[ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="7_elhyl"]
 
 [resource]
 script = ExtResource("2_sjlow")
 name = "HardStone"
 hp = 10
-dmg = 4
+dmg = 6
 cell_type = 7
-rewards = Array[ExtResource("1_7pxc7")]([ExtResource("2_upa0t"), ExtResource("3_mv7s8"), ExtResource("4_synr4"), ExtResource("5_8lgft"), ExtResource("6_7u53y"), ExtResource("7_elhyl")])
+rewards = Array[ExtResource("1_7pxc7")]([ExtResource("2_upa0t"), ExtResource("3_mv7s8"), ExtResource("5_8lgft"), ExtResource("6_7u53y")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

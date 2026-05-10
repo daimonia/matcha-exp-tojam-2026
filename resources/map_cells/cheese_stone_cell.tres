@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_dwa8y"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_2pftu"]
+[ext_resource type="Resource" uid="uid://c8vhqhx5kkhrs" path="res://resources/glyphs/goat_keys_glyph.tres" id="2_qxcg3"]
 
 [resource]
 script = ExtResource("2_2pftu")
@@ -9,4 +10,5 @@ name = "CheeseStone"
 hp = 10
 dmg = 4
 cell_type = 11
+rewards = Array[ExtResource("1_dwa8y")]([ExtResource("2_qxcg3")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

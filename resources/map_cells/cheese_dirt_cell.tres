@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://dqncagfeh2d7r"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_874yq"]
+[ext_resource type="Resource" uid="uid://c8vhqhx5kkhrs" path="res://resources/glyphs/goat_keys_glyph.tres" id="2_hoxys"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="2_qrnak"]
 
 [resource]
@@ -9,4 +10,5 @@ name = "CheeseDirt"
 hp = 10
 dmg = 4
 cell_type = 10
+rewards = Array[ExtResource("1_874yq")]([ExtResource("2_hoxys")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

@@ -1,6 +1,11 @@
 [gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://diwms6hybknme"]
 
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_m3eph"]
+[ext_resource type="Resource" uid="uid://bu0s6cpm7xtws" path="res://resources/glyphs/ravine_glyph.tres" id="2_62pgm"]
+[ext_resource type="Resource" uid="uid://dfxxdqa5x7s2k" path="res://resources/glyphs/machine_gun_glyph.tres" id="3_m3eph"]
+[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="4_jg6qa"]
+[ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="5_h3ov7"]
+[ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="6_q6mua"]
 [ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="8_3cqax"]
 
 [resource]
@@ -9,4 +14,5 @@ name = "MediumStone"
 hp = 10
 dmg = 4
 cell_type = 8
+rewards = Array[ExtResource("1_m3eph")]([ExtResource("2_62pgm"), ExtResource("3_m3eph"), ExtResource("4_jg6qa"), ExtResource("5_h3ov7"), ExtResource("6_q6mua")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"
