@@ -143,6 +143,7 @@ func attack():
         var attack_node: BaseGlyphAction = facing_glyph.action_node.instantiate()
         assert(attack_node is BaseGlyphAction, "action node must inherit BaseGlyphAction")
         attack_node.current_layer = get_current_layer()
+        attack_node.totum_that_spawned_me = self
 
         attack_node.attack_ended.connect(transition_state.bind(State.Holstered))
 
