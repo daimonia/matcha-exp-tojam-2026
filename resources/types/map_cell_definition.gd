@@ -11,6 +11,7 @@ enum CellType {
     Bedrock,
 
     ObjectTree,
+    ObjectBuilding,
 }
 
 @export var name: String
@@ -24,6 +25,7 @@ enum CellType {
 class MapCellInstance:
     var cell_type: CellType
     var max_hp: int
+    var rewards: Array[Glyph] = []
 
     ## this cell's (x, y) coordinates in the WorldLayer
     var coords: Vector2
@@ -32,10 +34,13 @@ class MapCellInstance:
 
     signal destroyed
 
-    func _init(_cell_type: CellType, _max_hp: int = 10):
+    func _init(_cell_type: CellType, _max_hp: int = 10, _rewards: Array[Glyph] = []):
         cell_type = _cell_type
+
         max_hp = _max_hp
         current_hp = max_hp
+
+        rewards = _rewards
 
     func take_damage(amount: int) -> void:
         current_hp = clamp(current_hp - amount, 0, max_hp)
@@ -44,7 +49,7 @@ class MapCellInstance:
 
     ## whether this cell instance is an "object" (e.g. a tree) rather than a Minecraft block
     func is_object() -> bool:
-        return self.cell_type == CellType.ObjectTree
+        return self.cell_type in [CellType.ObjectTree, CellType.ObjectBuilding]
 
     func _to_string() -> String:
         return "<%s [%s] [hp: %d/%d]>" % [
@@ -52,4 +57,4 @@ class MapCellInstance:
         ]
 
     static func from_definition(definition: MapCellDefinition) -> MapCellInstance:
-        return MapCellInstance.new(definition.cell_type, definition.hp)
+        return MapCellInstance.new(definition.cell_type, definition.hp, definition.rewards)

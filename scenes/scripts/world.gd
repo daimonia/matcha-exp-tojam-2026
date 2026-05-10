@@ -4,11 +4,14 @@ class_name World
 
 var layers: Array[WorldLayer]
 
+signal map_cell_destroyed(cell: MapCellDefinition.MapCellInstance)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     for child in get_children():
         if child is WorldLayer:
             layers.append(child)
+            child.map_cell_destroyed.connect(map_cell_destroyed.emit)
 
     layers.reverse()
 

@@ -1,0 +1,86 @@
+[gd_scene format=4 uid="uid://8rttt4w8l07"]
+
+[ext_resource type="Texture2D" uid="uid://dralky3cuf6nv" path="res://art/tiles/clay_1.PNG" id="1_0fyc2"]
+[ext_resource type="Texture2D" uid="uid://d8gmsceairmx" path="res://art/tiles/dirt_1.PNG" id="2_jqk0n"]
+[ext_resource type="Texture2D" uid="uid://bmcan0hysuw2c" path="res://art/tiles/grass_1.PNG" id="3_efp01"]
+[ext_resource type="Texture2D" uid="uid://55x2hihtxm3p" path="res://art/tiles/stone_hard_1.PNG" id="4_ce02i"]
+[ext_resource type="Texture2D" uid="uid://lppdya1gbhpb" path="res://art/tiles/trees_1.PNG" id="5_f1ssn"]
+[ext_resource type="Texture2D" uid="uid://6xp4n3kcok1w" path="res://art/tiles/trees_2.PNG" id="6_xogaq"]
+[ext_resource type="Texture2D" uid="uid://o0wdkotdqhnj" path="res://art/tiles/bedrock.PNG" id="7_8m13t"]
+[ext_resource type="Script" uid="uid://buo1dfnekxxku" path="res://scenes/scripts/world_layer.gd" id="8_0yeht"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w48qg"]
+resource_name = "clay"
+texture = ExtResource("1_0fyc2")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/custom_data_0 = &"Clay"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vivmo"]
+resource_name = "dirt"
+texture = ExtResource("2_jqk0n")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/custom_data_0 = &"Dirt"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2cqfq"]
+resource_name = "grass"
+texture = ExtResource("3_efp01")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/custom_data_0 = &"Grass"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yaehf"]
+resource_name = "hard_stone"
+texture = ExtResource("4_ce02i")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/custom_data_0 = &"HardStone"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_074og"]
+resource_name = "trees"
+texture = ExtResource("5_f1ssn")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:0/0/custom_data_0 = &"ObjectTree"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cegan"]
+texture = ExtResource("6_xogaq")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-76.45001, -103.675, -25.850006, -98.175, -9.350006, -73.975006, 22.549988, -71.225006, 16.5, -99.825005, 42.349976, -111.375, 63.799988, -92.125, 45.099976, -67.925, 64.89996, -35.475006, 48.399963, -9.625, 115.5, 32.175003, 81.39996, 109.17499, 21.450012, 88.274994, 7.1499634, 52.524994, -26.400024, 95.425, -59.950012, 101.475006, -92.400024, 66.825, -89.650024, 13.474991, -73.150024, -7.975006, -97.900024, -23.375, -112.20001, -37.125, -110.00003, -71.775, -90.20001, -92.675)
+0:0/0/custom_data_0 = &"ObjectTree"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7kh3"]
+texture = ExtResource("7_8m13t")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/custom_data_0 = &"Bedrock"
+
+[sub_resource type="TileSet" id="TileSet_82xsv"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "tile_type"
+custom_data_layer_0/type = 21
+sources/0 = SubResource("TileSetAtlasSource_w48qg")
+sources/1 = SubResource("TileSetAtlasSource_vivmo")
+sources/2 = SubResource("TileSetAtlasSource_2cqfq")
+sources/3 = SubResource("TileSetAtlasSource_yaehf")
+sources/4 = SubResource("TileSetAtlasSource_074og")
+sources/5 = SubResource("TileSetAtlasSource_cegan")
+sources/6 = SubResource("TileSetAtlasSource_w7kh3")
+
+[node name="Node2D" type="Node2D" unique_id=1375348400]
+script = ExtResource("8_0yeht")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1552483757]
+tile_map_data = PackedByteArray("AAADAAAABgAAAAAAAAAAAAIABgAAAAAAAAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAACAAAABgAAAAAAAAAEAAAABgAAAAAAAAAFAAAABgAAAAAAAAAAAAEABgAAAAAAAAAAAAMABgAAAAAAAAAAAAQABgAAAAAAAAAAAAUABgAAAAAAAAAAAAYABgAAAAAAAAAMAAAABgAAAAAAAAALAAAABgAAAAAAAAAKAAAABgAAAAAAAAAJAAAABgAAAAAAAAAIAAAABgAAAAAAAAAHAAAABgAAAAAAAAAGAAAABgAAAAAAAAACAAQABAAAAAAAAAALAAMABAAAAAAAAAAEAAEABAAAAAAAAAAIAAQABAAAAAAAAAAAAAcABgAAAAAAAAAAAAgABgAAAAAAAAAAAAkABgAAAAAAAAAAAAoABgAAAAAAAAAAAAsABgAAAAAAAAAAAAwABgAAAAAAAAAAAA0ABgAAAAAAAAAAAA4ABgAAAAAAAAAAAA8ABgAAAAAAAAAAABAABgAAAAAAAAAAABEABgAAAAAAAAAAABIABgAAAAAAAAAAABMABgAAAAAAAAAAABQABgAAAAAAAAAAABUABgAAAAAAAAAAABYABgAAAAAAAAAAABcABgAAAAAAAAAAABgABgAAAAAAAAAAABkABgAAAAAAAAAAABoABgAAAAAAAAAAABsABgAAAAAAAAAAABwABgAAAAAAAAAAAB0ABgAAAAAAAAAAAB4ABgAAAAAAAAAAAB8ABgAAAAAAAAAAACAABgAAAAAAAAAAACEABgAAAAAAAAAAACIABgAAAAAAAAABACIABgAAAAAAAAACACIABgAAAAAAAAADACIABgAAAAAAAAAEACIABgAAAAAAAAAFACIABgAAAAAAAAAGACIABgAAAAAAAAAHACIABgAAAAAAAAAIACIABgAAAAAAAAAJACIABgAAAAAAAAAKACIABgAAAAAAAAALACIABgAAAAAAAAAMACIABgAAAAAAAAANACIABgAAAAAAAAAOACIABgAAAAAAAAAPACIABgAAAAAAAAAQACIABgAAAAAAAAARACIABgAAAAAAAAASACIABgAAAAAAAAATACIABgAAAAAAAAAUACIABgAAAAAAAAAVACIABgAAAAAAAAAWACIABgAAAAAAAAAXACIABgAAAAAAAAAYACIABgAAAAAAAAAZACIABgAAAAAAAAAaACIABgAAAAAAAAAbACIABgAAAAAAAAAcACIABgAAAAAAAAAdACIABgAAAAAAAAAeACIABgAAAAAAAAAfACIABgAAAAAAAAAgACIABgAAAAAAAAAhACIABgAAAAAAAAAiACIABgAAAAAAAAAiACEABgAAAAAAAAAiACAABgAAAAAAAAAiAB8ABgAAAAAAAAAiAB4ABgAAAAAAAAAiAB0ABgAAAAAAAAAiABwABgAAAAAAAAAiABsABgAAAAAAAAAiABoABgAAAAAAAAAiABkABgAAAAAAAAAiABgABgAAAAAAAAAiABcABgAAAAAAAAAiABYABgAAAAAAAAAiABUABgAAAAAAAAAiABQABgAAAAAAAAAiABMABgAAAAAAAAAiABIABgAAAAAAAAAiABEABgAAAAAAAAAiABAABgAAAAAAAAAiAA8ABgAAAAAAAAAiAA4ABgAAAAAAAAAiAA0ABgAAAAAAAAAiAAwABgAAAAAAAAAiAAsABgAAAAAAAAAiAAoABgAAAAAAAAAiAAkABgAAAAAAAAAiAAgABgAAAAAAAAAiAAcABgAAAAAAAAAiAAYABgAAAAAAAAAiAAUABgAAAAAAAAAiAAQABgAAAAAAAAAiAAMABgAAAAAAAAAiAAIABgAAAAAAAAAiAAEABgAAAAAAAAAiAAAABgAAAAAAAAAhAAAABgAAAAAAAAAgAAAABgAAAAAAAAAfAAAABgAAAAAAAAAeAAAABgAAAAAAAAAdAAAABgAAAAAAAAAcAAAABgAAAAAAAAAbAAAABgAAAAAAAAAaAAAABgAAAAAAAAAZAAAABgAAAAAAAAAYAAAABgAAAAAAAAAXAAAABgAAAAAAAAAWAAAABgAAAAAAAAAVAAAABgAAAAAAAAAUAAAABgAAAAAAAAATAAAABgAAAAAAAAASAAAABgAAAAAAAAARAAAABgAAAAAAAAAQAAAABgAAAAAAAAAPAAAABgAAAAAAAAAOAAAABgAAAAAAAAANAAAABgAAAAAAAAAKABoABAAAAAAAAAAdAAsABAAAAAAAAAAcAAsABAAAAAAAAAAPAAsABAAAAAAAAAAZABcABAAAAAAAAAAPABgABAAAAAAAAAADABMABAAAAAAAAAAZAAUABAAAAAAAAAATABAABAAAAAAAAAAaACAABAAAAAAAAAAVABwABAAAAAAAAAA=")
+tile_set = SubResource("TileSet_82xsv")
+collision_enabled = false
+navigation_enabled = false
+script = ExtResource("8_0yeht")

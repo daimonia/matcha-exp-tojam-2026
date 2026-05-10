@@ -46,8 +46,6 @@ signal facing_glyph_updated
 signal buff(totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable)
 
 ## scuffed way of communicating up the tree that somebody won the game
-## emitted by GlyphActionGoated.on_goat
-## i'm sorry
 signal won_game
 
 

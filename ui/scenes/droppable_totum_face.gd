@@ -14,6 +14,8 @@ class_name DroppableTotumFace
 
         texture = glyph.texture
 
+signal dropped_glyph(glyph: Glyph)
+
 func set_glyph(_glyph: Glyph):
     glyph = _glyph
 
@@ -27,3 +29,4 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
     set_glyph(data)
+    dropped_glyph.emit(data)

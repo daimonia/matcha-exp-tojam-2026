@@ -52,3 +52,7 @@ func end_game(did_win: bool) -> void:
     hud.hide()
     $CanvasLayer/GameEnd.did_win = did_win
     $CanvasLayer/GameEnd.show()
+
+
+func _on_world_map_cell_destroyed(cell: MapCellDefinition.MapCellInstance) -> void:
+    hud.populate_rewards(cell.rewards)

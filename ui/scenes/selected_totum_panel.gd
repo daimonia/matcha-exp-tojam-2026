@@ -17,7 +17,7 @@ func set_totum(_totum: Totum) -> void:
     else:
         show()
 
-    var droppable_faces: Array[TextureRect]
+    var droppable_faces: Array[DroppableTotumFace]
 
     for child in get_children():
         if child is DroppableTotumFace:
@@ -30,3 +30,8 @@ func set_totum(_totum: Totum) -> void:
 
         var glyph = totum.glyphs[i]
         droppable_faces[i].set_glyph(glyph)
+
+        droppable_faces[i].dropped_glyph.connect(
+            func(glyph: Glyph):
+                totum.glyphs[i] = glyph
+        )
