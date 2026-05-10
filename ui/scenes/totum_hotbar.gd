@@ -100,7 +100,6 @@ func _on_mouse_entered() -> void:
         # running as a tool script, so don't do anything wild
         return
 
-    print('%s: begin hovering' % self.name)
     is_hovering = true
 
 
@@ -109,5 +108,4 @@ func _on_mouse_exited() -> void:
         # running as a tool script, so don't do anything wild
         return
 
-    print('%s: no longer hovering' % self.name)
     is_hovering = false
