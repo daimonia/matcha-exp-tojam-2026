@@ -5,6 +5,9 @@ class_name Totum
 ## the total number of faces that a totum has
 const NUM_FACES = 6
 
+## collision mask for totums
+const TOTUM_COLLISION_MASK := 1 << 10
+
 enum State {
     Holstered,  #can be clicked in the holster; doesn't appear in world
     Dragging,  #has been clicked; follows mouse; top view
@@ -22,6 +25,12 @@ enum State {
 
 @export var glyphs: Array[Glyph] = []
 @export var glyph_visible: bool
+
+@onready var hp: int = max_hp:
+    set(value):
+        hp = value
+        current_hp_changed.emit(hp)
+
 @export var max_hp: int = 50:
     set(value):
         max_hp = value
@@ -31,11 +40,7 @@ enum State {
 @export var pull_damping = 5.0
 @export var drag = 0.9
 @export var shield: bool = true #add an if statement to the damage function to prevent all damage 1 attack and set this to false
-
-@onready var hp: int = max_hp:
-    set(value):
-        hp = value
-        current_hp_changed.emit(hp)
+@export var hang_time_duration: float = 0.4
 
 @onready var timer: Timer = $Timer
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
@@ -48,6 +53,10 @@ var facing_glyph: Glyph = null
 
 var already_attacked = false
 var snapping_to_mouse = false
+
+var current_layer_depth: int = -1
+var hang_time_remaining: float = 0.0
+var is_falling := false
 
 signal state_transitioned
 signal facing_glyph_updated
@@ -71,11 +80,17 @@ func _integrate_forces(physics_state: PhysicsDirectBodyState2D) -> void:
         snapping_to_mouse = false
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
     match state:
         State.Dragging:
             var displacement = get_global_mouse_position() - global_position
             apply_force(displacement * pull_stiffness - linear_velocity * pull_damping)
+        State.Spinning:
+            update_collision_mask(delta)
+            linear_velocity *= drag
+        State.Toppled:
+            update_collision_mask(delta)
+            linear_velocity *= drag
         _:
             linear_velocity *= drag
 
@@ -97,9 +112,14 @@ func transition_state(next_state: State) -> void:
             facing_glyph_updated.emit(null)
             totum_sprite.show_glyph(null)
             physics_hitbox.disabled = true
+
+            current_layer_depth = -1
         State.Dragging:
             physics_hitbox.disabled = false
             snapping_to_mouse = true
+
+            collision_mask = TOTUM_COLLISION_MASK | 1  # collide with top layer + other totums
+            print('%s: collision_mask = %o' % [name, collision_mask])
         State.Dropped:
             transition_state(State.Spinning)
         State.Spinning:
@@ -111,6 +131,41 @@ func transition_state(next_state: State) -> void:
         _:
             print("%s: no state transition logic" % name)
 
+
+func update_collision_mask(delta: float):
+    var current_layer := get_current_layer()
+
+    if current_layer.depth == current_layer_depth:
+        return
+
+    if current_layer_depth < 0:
+        print('%s: initializing to depth %o' % [name, current_layer.depth])
+        set_current_layer_depth(current_layer.depth)
+        return
+
+    if current_layer.depth < current_layer_depth:
+        # somehow we have gone up
+        print('%s: going up (%d -> %d)' % [name, current_layer_depth, current_layer.depth])
+        set_current_layer_depth(current_layer.depth)
+
+    if !is_falling:
+        print('%s: starting hang' % name)
+        is_falling = true
+        hang_time_remaining = hang_time_duration
+
+    # hang for a brief period before falling into the next layer
+    hang_time_remaining -= delta
+    if hang_time_remaining <= 0.0:
+        is_falling = false
+        print('%s: i fell down' % name)
+        set_current_layer_depth(current_layer.depth)
+
+
+func set_current_layer_depth(depth: int):
+    current_layer_depth = depth
+    collision_mask = TOTUM_COLLISION_MASK | 1 << (depth - 1)
+    print('%s: collision_mask = %o' % [name, collision_mask])
+    hang_time_remaining = 0.0
 
 func spin_start():
     #start the timer and run the spinning animation

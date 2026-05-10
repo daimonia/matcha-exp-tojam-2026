@@ -231,6 +231,8 @@ tile_set = SubResource("TileSet_82xsv")
 collision_enabled = false
 navigation_enabled = false
 
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer6" unique_id=707453613]
+
 [node name="WorldLayer5" type="Node2D" parent="." unique_id=544165596 node_paths=PackedStringArray("map_cell_definition_loader")]
 script = ExtResource("7_2o6r5")
 map_cell_definition_loader = NodePath("../MapCellDefinitionLoader")
@@ -248,6 +250,8 @@ tile_map_data = PackedByteArray("AAAAAAAABgAAAAAAAAABAAAABgAAAAAAAAACAAAABgAAAAA
 tile_set = SubResource("TileSet_82xsv")
 collision_enabled = false
 navigation_enabled = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer5" unique_id=994040006]
 
 [node name="WorldLayer4" type="Node2D" parent="." unique_id=1449931254 node_paths=PackedStringArray("map_cell_definition_loader")]
 script = ExtResource("7_2o6r5")
@@ -267,6 +271,8 @@ tile_set = SubResource("TileSet_82xsv")
 collision_enabled = false
 navigation_enabled = false
 
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer4" unique_id=2060852936]
+
 [node name="WorldLayer3" type="Node2D" parent="." unique_id=974355439 node_paths=PackedStringArray("map_cell_definition_loader")]
 script = ExtResource("7_2o6r5")
 map_cell_definition_loader = NodePath("../MapCellDefinitionLoader")
@@ -284,6 +290,8 @@ tile_set = SubResource("TileSet_82xsv")
 collision_enabled = false
 navigation_enabled = false
 
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer3" unique_id=1230185344]
+
 [node name="WorldLayer2" type="Node2D" parent="." unique_id=743581399 node_paths=PackedStringArray("map_cell_definition_loader")]
 script = ExtResource("7_2o6r5")
 map_cell_definition_loader = NodePath("../MapCellDefinitionLoader")
@@ -295,6 +303,8 @@ tile_set = SubResource("TileSet_82xsv")
 collision_enabled = false
 navigation_enabled = false
 
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer2" unique_id=241230812]
+
 [node name="WorldLayer1" type="Node2D" parent="." unique_id=113126349 node_paths=PackedStringArray("map_cell_definition_loader")]
 script = ExtResource("7_2o6r5")
 map_cell_definition_loader = NodePath("../MapCellDefinitionLoader")
@@ -305,6 +315,8 @@ tile_map_data = PackedByteArray("AAADAAAABgAAAAAAAAAAAAIABgAAAAAAAAAAAAAABgAAAAA
 tile_set = SubResource("TileSet_xgqkh")
 collision_enabled = false
 navigation_enabled = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="WorldLayer1" unique_id=407475288]
 
 [node name="MapCellDefinitionLoader" type="Node" parent="." unique_id=478892079]
 script = ExtResource("10_w7kh3")

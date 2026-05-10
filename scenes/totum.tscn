@@ -12,6 +12,7 @@ size = Vector2(171, 158)
 size = Vector2(165.5, 114)
 
 [node name="Totum" type="RigidBody2D" unique_id=50829409]
+collision_layer = 1025
 gravity_scale = 0.0
 script = ExtResource("1_81aao")
 glyphs = Array[ExtResource("2_57vms")]([ExtResource("3_ba5jr")])

@@ -11,13 +11,23 @@ class_name WorldLayer
 @export var layer_above: WorldLayer
 @export var layer_below: WorldLayer
 @export var max_depth: int
-@export var depth: int
+
+@export var depth: int:
+    set(value):
+        depth = value
+
+        collision_body.collision_layer = 1 << depth   # bit N for depth N
+        collision_body.collision_mask = 0
+
+        print('%s: collision layer %d, collision mask %d' % [name, collision_body.collision_layer, collision_body.collision_mask])
 
 ## the TileMapLayer that contains the actual map design
 @onready var tile_map_layer_world: TileMapLayer = $TileMapLayer
 
 @onready var cell_positions = tile_map_layer_world.get_used_cells()
 @onready var map_size = tile_map_layer_world.get_used_rect()
+
+@onready var collision_body: StaticBody2D = $StaticBody2D
 
 signal map_cell_destroyed(cell: MapCellDefinition.MapCellInstance)
 
@@ -26,6 +36,8 @@ var map_height: int
 var cells: Array = []  # Array[Array[MapCellInstance]]
 
 func _ready() -> void:
+    depth = depth
+
     map_width = map_size.size.x - map_size.position.x
     map_height =  map_size.size.y - map_size.position.y
 
@@ -43,6 +55,14 @@ func _ready() -> void:
             "failed to load MapCellDefinition for tile %s: unknown tile_type %s" % [tile, tile_type]
         )
 
+        if definition.cell_type != MapCellDefinition.CellType.Empty:
+            var collision_shape := CollisionShape2D.new()
+            collision_shape.shape = RectangleShape2D.new()
+            collision_shape.shape.size = tile_map_layer_world.tile_set.tile_size
+            collision_shape.position = tile_map_layer_world.map_to_local(coords)
+            collision_shape.name = 'cell_%d_%d' % [coords.x, coords.y]
+            collision_body.add_child(collision_shape)
+
         set_cell_at_position(coords, MapCellDefinition.MapCellInstance.from_definition(self, definition))
 
 
@@ -52,6 +72,9 @@ func _on_cell_destroyed(cell: MapCellDefinition.MapCellInstance) -> void:
     cell.disconnect("destroyed", _on_cell_destroyed)
 
     map_cell_destroyed.emit(cell)
+
+    var shape = collision_body.get_node_or_null("cell_%d_%d" % [cell.coords.x, cell.coords.y])
+    if shape: shape.queue_free()
 
     if layer_above:
         var above_cell = layer_above.get_cell_at_position(cell.coords)
@@ -69,8 +92,8 @@ func set_cell_at_position(pos: Vector2, cell: MapCellDefinition.MapCellInstance)
 
 
 func get_cell_at_position(pos: Vector2) -> MapCellDefinition.MapCellInstance:
-    assert(pos.y < cells.size())
-    assert(pos.x < cells[pos.y].size())
+    assert(pos.y < cells.size(), '%s: out of bounds (x-axis)' % name)
+    assert(pos.x < cells[pos.y].size(), "%s: out of bounds (y-axis)" % name)
     return cells[pos.y][pos.x]
 
 
