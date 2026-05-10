@@ -3,6 +3,13 @@
 [ext_resource type="Script" uid="uid://dugug370s8iur" path="res://ui/scenes/totum_hotbar.gd" id="1_fr1n0"]
 [ext_resource type="PackedScene" uid="uid://dhj2wtlf0spi3" path="res://scenes/animated_totum_sprite.tscn" id="2_fr1n0"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y8hi"]
+bg_color = Color(1, 0.30185524, 0.5029618, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="TotumHotbar" type="Panel" unique_id=1538132659]
 custom_minimum_size = Vector2(160, 160)
 anchors_preset = 8
@@ -18,9 +25,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
 script = ExtResource("1_fr1n0")
+current_totum_hp = 1
+current_totum_max_hp = 1
 
 [node name="Highlight" type="MarginContainer" parent="." unique_id=2133096120]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
@@ -40,6 +48,25 @@ mouse_filter = 2
 [node name="AnimatedTotumSprite" parent="." unique_id=2146667746 instance=ExtResource("2_fr1n0")]
 position = Vector2(80, 80)
 scale = Vector2(0.5, 0.5)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=386719990]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 13.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer" unique_id=1503381421]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/fill = SubResource("StyleBoxFlat_8y8hi")
+max_value = 1.0
+value = 1.0
+rounded = true
+show_percentage = false
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

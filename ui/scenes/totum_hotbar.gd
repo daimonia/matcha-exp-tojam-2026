@@ -1,11 +1,25 @@
+@tool
+
 class_name TotumHotbar
 
 extends Control
 
 @export var current_totum_state: Totum.State
+
+@export var current_totum_hp: int:
+    set(value):
+        current_totum_hp = value
+        update_hp_bar()
+
+@export var current_totum_max_hp: int:
+    set(value):
+        current_totum_max_hp = max(value, 1)
+        update_hp_bar()
+
 @export var is_selected: bool
 
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotumSprite
+@onready var hp_bar: ProgressBar = $MarginContainer/HealthBar
 
 signal drag_started
 signal drag_dropped
@@ -18,6 +32,7 @@ var is_dragging = false
 
 func _ready() -> void:
     assert(current_totum_state != null, "no state no hotbar >:(")
+    update_hp_bar()
 
 
 func _process(_delta: float) -> void:
@@ -63,6 +78,18 @@ func update_totum_state(state: Totum.State) -> void:
         _:
             totum_sprite.play("holstered_hotbar")
 
+func update_totum_hp(hp: int) -> void:
+    current_totum_hp = hp
+
+func update_totum_max_hp(max_hp: int) -> void:
+    current_totum_max_hp = max_hp
+
+func update_hp_bar() -> void:
+    if hp_bar == null:
+        return
+
+    hp_bar.max_value = current_totum_max_hp
+    hp_bar.value = current_totum_hp
 
 func update_totum_glyph(glyph: Glyph) -> void:
     totum_sprite.show_glyph(glyph)
