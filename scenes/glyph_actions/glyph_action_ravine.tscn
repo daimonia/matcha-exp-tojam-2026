@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dcg0bv6ombyen" path="res://art/totum/ClaybladeSpriteSheet.png" id="2_j1prh"]
 [ext_resource type="AudioStream" uid="uid://dwuvdo3rgtkh0" path="res://sfx/attack_out_1.wav" id="3_b48tf"]
 [ext_resource type="AudioStream" uid="uid://b2dh3vr8gk2wy" path="res://sfx/attack_out_2.wav" id="4_6uu7o"]
+[ext_resource type="AudioStream" uid="uid://nug0l456orj" path="res://sfx/attack_down_1.wav" id="5_b48tf"]
+[ext_resource type="AudioStream" uid="uid://3ihvpihhksr4" path="res://sfx/attack_down_2.wav" id="6_6uu7o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf6ec"]
 atlas = ExtResource("2_j1prh")
@@ -52,9 +54,11 @@ animations = [{
 playback_mode = 1
 random_pitch = 1.0804133
 random_volume_offset_db = 1.43
-streams_count = 2
+streams_count = 4
 stream_0/stream = ExtResource("3_b48tf")
 stream_1/stream = ExtResource("4_6uu7o")
+stream_2/stream = ExtResource("5_b48tf")
+stream_3/stream = ExtResource("6_6uu7o")
 
 [node name="GlyphActionRavine" type="Node2D" unique_id=74806801]
 script = ExtResource("1_lf6ec")

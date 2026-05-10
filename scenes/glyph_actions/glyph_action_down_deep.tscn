@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dhuih7oq1wevn" path="res://scenes/glyph_actions/glyph_action_down_deep.gd" id="1_uh2ul"]
 [ext_resource type="Texture2D" uid="uid://dcg0bv6ombyen" path="res://art/totum/ClaybladeSpriteSheet.png" id="2_wewkc"]
-[ext_resource type="AudioStream" uid="uid://dwuvdo3rgtkh0" path="res://sfx/attack_out_1.wav" id="3_rih78"]
-[ext_resource type="AudioStream" uid="uid://b2dh3vr8gk2wy" path="res://sfx/attack_out_2.wav" id="4_dnmty"]
+[ext_resource type="AudioStream" uid="uid://nug0l456orj" path="res://sfx/attack_down_1.wav" id="3_uh2ul"]
+[ext_resource type="AudioStream" uid="uid://3ihvpihhksr4" path="res://sfx/attack_down_2.wav" id="4_wewkc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uh2ul"]
 atlas = ExtResource("2_wewkc")
@@ -46,8 +46,8 @@ playback_mode = 1
 random_pitch = 1.0804133
 random_volume_offset_db = 1.43
 streams_count = 2
-stream_0/stream = ExtResource("3_rih78")
-stream_1/stream = ExtResource("4_dnmty")
+stream_0/stream = ExtResource("3_uh2ul")
+stream_1/stream = ExtResource("4_wewkc")
 
 [node name="GlyphActionDownDeep" type="Node2D" unique_id=74806801]
 script = ExtResource("1_uh2ul")
