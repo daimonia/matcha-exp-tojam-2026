@@ -15,11 +15,17 @@ func _ready() -> void:
 
         totum.state_transitioned.connect(hotbar.update_totum_state)
         totum.facing_glyph_updated.connect(hotbar.update_totum_glyph)
+        totum.facing_glyph.buff.connect(_on_buff_triggered.bind(totum))
 
         hotbar.drag_started.connect(totum.transition_state.bind(Totum.State.Dragging))
         hotbar.drag_started.connect(_on_select_totum.bind(hotbar, totum))
         hotbar.drag_dropped.connect(totum.transition_state.bind(Totum.State.Dropped))
         hotbar.drag_canceled.connect(totum.transition_state.bind(Totum.State.Holstered))
+
+
+func _on_buff_triggered(triggering_totum: Totum, callback: Callable):
+    for totum in totums:
+        callback.call(totum)
 
 
 func _on_select_totum(hotbar_item: TotumHotbar, totum: Totum) -> void:

@@ -19,6 +19,7 @@ enum State {
 
 @export var glyphs: Array[Glyph] = []
 @export var glyph_visible: bool
+@export var hp: int = 50
 
 @onready var timer: Timer = $Timer
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
@@ -32,6 +33,7 @@ var already_attacked = false
 
 signal state_transitioned
 signal facing_glyph_updated
+signal heal
 
 func _ready() -> void:
     transition_state(State.Holstered)
@@ -100,6 +102,8 @@ func attack():
         add_child(attack_node)
         attack_node.connect("attack_ended", transition_state.bind(State.Holstered))
         transition_state(State.Attacking)
+        if facing_glyph.name == "Heal":
+            heal.emit()
     else:
         transition_state(State.Holstered)
 
