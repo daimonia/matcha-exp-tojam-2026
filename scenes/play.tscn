@@ -8,7 +8,12 @@
 [ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
+[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
 [ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="9_efqae"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="10_6fc6i"]
+[ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="11_hogub"]
+[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="13_ogtmt"]
+[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="14_cd23g"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -38,35 +43,27 @@ totums = [NodePath("Totum4"), NodePath("Totum3"), NodePath("Totum2"), NodePath("
 [node name="Totum4" parent="TotumManager" unique_id=199768820 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(559, -2727)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 world = NodePath("../../World")
-state = 0
-glyph_visible = false
 
 [node name="Totum3" parent="TotumManager" unique_id=1646026232 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(805, -2731)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 world = NodePath("../../World")
-state = 0
-glyph_visible = false
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(797, -2823)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 world = NodePath("../../World")
-state = 0
-glyph_visible = false
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
 z_index = 1
 position = Vector2(619, -2846)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 world = NodePath("../../World")
-state = 0
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae")])
-glyph_visible = false
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("10_6fc6i"), ExtResource("11_hogub"), ExtResource("8_efqae"), ExtResource("13_ogtmt"), ExtResource("14_cd23g")])
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]
 wait_time = 180.0

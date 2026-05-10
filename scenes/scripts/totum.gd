@@ -24,8 +24,11 @@ enum State {
 @onready var timer: Timer = $Timer
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var toppled_click_hitbox: Area2D = $ToppledClickHitbox
+@onready var facing_glyph_sprite: Sprite2D = $AnimatedSprite2D/FacingGlyphSprite
 
-var facing_glyph_index: int = 0
+var rng = RandomNumberGenerator.new()
+
+var facing_glyph: Glyph = null
 
 var already_attacked = false
 
@@ -56,6 +59,9 @@ func transition_state(next_state: State) -> void:
 
     state_transitioned.emit(state)
 
+    if state in [State.Holstered, State.Dragging, State.Dropped, State.Spinning]:
+        facing_glyph_sprite.hide()
+
     match state:
         State.Dropped:
             transition_state(State.Spinning)
@@ -78,14 +84,23 @@ func spin_start():
 func topple():
     animation_player.play("toppled")
 
+    # pick which glyph we landed on
+    var facing_glyph_index = rng.randi_range(0, 5)
+
+    if facing_glyph_index > glyphs.size() - 1:
+        # landed on a blank face
+        return
+
+    facing_glyph = glyphs[facing_glyph_index]
+    facing_glyph_sprite.texture = facing_glyph.texture
+    facing_glyph_sprite.show()
+
 
 func attack():
     if state != State.Toppled or already_attacked:
         return
 
-    var facing_glyph = glyphs[facing_glyph_index]
-
-    if facing_glyph.action_node:
+    if facing_glyph and facing_glyph.action_node:
         already_attacked = true
         var attack_node: BaseGlyphAction = facing_glyph.action_node.instantiate()
         assert(attack_node is BaseGlyphAction, "action node must inherit BaseGlyphAction")
