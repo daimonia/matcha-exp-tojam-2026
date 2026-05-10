@@ -7,4 +7,5 @@
 script = ExtResource("1_ykmwv")
 name = "Down Wide"
 texture = ExtResource("2_36ti8")
+description = "Drills down shallow and destroys a few tiles around"
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"
