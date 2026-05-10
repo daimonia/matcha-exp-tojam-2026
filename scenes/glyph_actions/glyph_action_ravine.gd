@@ -28,10 +28,10 @@ func _ready() -> void:
             #deal damage to the cardinal directions on same layer
             #for direction in damage_directions:
                 for i in length:
-                    var temp = current_layer.get_cell_at_position(cell.coords + direction*(i-2))
+                    var temp = current_layer.get_cell_at_position(cell.coords + damage_directions[direction]*(i-2))
                     if temp:
                         takeDamage += temp.take_damage(1000)
-                        temp = current_layer.layer_below.get_cell_at_position(cell.coords + direction*(i-2))
+                        temp = current_layer.layer_below.get_cell_at_position(cell.coords + damage_directions[direction]*(i-2))
                         if temp:
                             takeDamage += temp.take_damage(1000)
         #if the totum is shielded, remove it, otherwise, deal damage to it
