@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://dhj2wtlf0spi3"]
+
+[ext_resource type="Texture2D" uid="uid://dcg0bv6ombyen" path="res://art/totum/ClaybladeSpriteSheet.png" id="1_auaiq"]
+[ext_resource type="Script" uid="uid://bda1ceis4edt7" path="res://scenes/animated_totum_sprite.gd" id="2_swtkq"]
+[ext_resource type="Texture2D" uid="uid://08jp0nh4siql" path="res://art/glyphs/glyph_heal.PNG" id="2_xjxiw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7sjv"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onkh5"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(1792, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdrer"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2lil"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(256, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61c78"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1nxp"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifp7h"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j0wk"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvfnd"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(1536, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en7iw"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(2048, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l80w"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(2304, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8286v"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfhlr"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(2816, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws2y3"]
+atlas = ExtResource("1_auaiq")
+region = Rect2(2560, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8286v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7sjv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onkh5")
+}],
+"loop": true,
+"name": &"holstered_hotbar",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdrer")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2lil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61c78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1nxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifp7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j0wk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvfnd")
+}],
+"loop": true,
+"name": &"spin",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onkh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en7iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l80w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8286v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qfhlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8286v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4l80w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en7iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onkh5")
+}],
+"loop": true,
+"name": &"spin_hotbar",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws2y3")
+}],
+"loop": false,
+"name": &"toppled",
+"speed": 12.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=2146667746]
+sprite_frames = SubResource("SpriteFrames_8286v")
+animation = &"toppled"
+autoplay = "default"
+script = ExtResource("2_swtkq")
+
+[node name="ToppledGlyphSprite" type="Sprite2D" parent="." unique_id=2140525060]
+visible = false
+position = Vector2(-4, 20)
+rotation = 0.24609143
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_xjxiw")

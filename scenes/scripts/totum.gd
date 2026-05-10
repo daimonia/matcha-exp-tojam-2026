@@ -20,11 +20,9 @@ enum State {
 @export var glyphs: Array[Glyph] = []
 @export var glyph_visible: bool
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
 @onready var toppled_click_hitbox: Area2D = $ToppledClickHitbox
-@onready var facing_glyph_sprite: Sprite2D = $AnimatedSprite2D/FacingGlyphSprite
 
 var rng = RandomNumberGenerator.new()
 
@@ -47,15 +45,14 @@ func transition_state(next_state: State) -> void:
 
     state = next_state
 
-    animated_sprite_2d.visible = state != State.Holstered
+    totum_sprite.visible = state != State.Holstered
 
     state_transitioned.emit(state)
 
-    if state in [State.Holstered, State.Dragging, State.Dropped, State.Spinning] and facing_glyph_sprite.visible:
-        facing_glyph_sprite.hide()
-        facing_glyph_updated.emit(null)
-
     match state:
+        State.Holstered:
+            facing_glyph_updated.emit(null)
+            totum_sprite.show_glyph(null)
         State.Dropped:
             transition_state(State.Spinning)
         State.Spinning:
@@ -71,11 +68,11 @@ func transition_state(next_state: State) -> void:
 func spin_start():
     #start the timer and run the spinning animation
     timer.start()
-    animated_sprite_2d.play("spin")
+    totum_sprite.play("spin")
 
 
 func topple():
-    animation_player.play("toppled")
+    totum_sprite.play("toppled")
 
     # pick which glyph we landed on
     var facing_glyph_index = rng.randi_range(0, 5)
@@ -85,8 +82,7 @@ func topple():
         return
 
     facing_glyph = glyphs[facing_glyph_index]
-    facing_glyph_sprite.texture = facing_glyph.texture
-    facing_glyph_sprite.show()
+    totum_sprite.show_glyph(facing_glyph)
 
     facing_glyph_updated.emit(facing_glyph)
 

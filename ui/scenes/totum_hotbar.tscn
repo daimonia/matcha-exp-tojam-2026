@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://hktteom25w3a"]
 
 [ext_resource type="Script" uid="uid://dugug370s8iur" path="res://ui/scenes/totum_hotbar.gd" id="1_fr1n0"]
-[ext_resource type="Texture2D" uid="uid://08jp0nh4siql" path="res://art/glyphs/glyph_heal.PNG" id="3_0mnik"]
-[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="4_kitk6"]
+[ext_resource type="PackedScene" uid="uid://dhj2wtlf0spi3" path="res://scenes/animated_totum_sprite.tscn" id="2_fr1n0"]
 
 [node name="TotumHotbar" type="Panel" unique_id=1538132659]
 custom_minimum_size = Vector2(160, 160)
@@ -38,17 +37,9 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 mouse_filter = 2
 
-[node name="TotumSprite" type="Sprite2D" parent="." unique_id=1451300825]
-unique_name_in_owner = true
-position = Vector2(79, 81)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_kitk6")
-
-[node name="GlyphSprite" type="Sprite2D" parent="TotumSprite" unique_id=1025909309]
-visible = false
-position = Vector2(-4, 44)
-scale = Vector2(0.578125, 0.5625)
-texture = ExtResource("3_0mnik")
+[node name="AnimatedTotumSprite" parent="." unique_id=2146667746 instance=ExtResource("2_fr1n0")]
+position = Vector2(80, 80)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
