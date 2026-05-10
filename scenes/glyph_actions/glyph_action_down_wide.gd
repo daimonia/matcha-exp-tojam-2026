@@ -18,16 +18,17 @@ func _ready() -> void:
 
     if current_layer: #passed by the totum when it attacks
         var cell = current_layer.get_cell_at_global_position(global_position)
+        var takeDamage: int = 0
         #check if there's a cell where the totum is and if so, deal damage
         if cell:
             #deal damage to the same tile on each layer down for each time generated
             var temp = current_layer.get_cell_at_position(cell.coords)
             for time in times:
                 if temp:
-                    temp.take_damage(1000)
+                    takeDamage += temp.take_damage(1000)
                     for direction in damage_directions:
                         var tempDirection = current_layer.get_cell_at_position(cell.coords + direction)
-                        tempDirection.take_damage(1000)
+                        takeDamage += tempDirection.take_damage(1000)
                     temp = current_layer.layer_below.get_cell_at_position(cell.coords)
     else:
         push_warning('%s: no current layer specified' % name)

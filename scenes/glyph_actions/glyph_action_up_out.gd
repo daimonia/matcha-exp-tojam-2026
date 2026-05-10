@@ -39,26 +39,27 @@ func _ready() -> void:
     
     if current_layer.layer_above:
         var cell = current_layer.layer_above.get_cell_at_global_position(global_position)
+        var takeDamage: int = 0
 
         #check if there's a cell where the totum is and if so, deal damage
         if cell:
-            current_layer.layer_above.get_cell_at_position(cell.coords).take_damage(1000)
+            takeDamage += current_layer.layer_above.get_cell_at_position(cell.coords).take_damage(1000)
             #deal damage to the layer above
             for direction in damage_directions_first:
                 var temp = current_layer.layer_above.get_cell_at_position(cell.coords + direction)
                 if temp:
-                    temp.take_damage(1000)
+                    takeDamage += temp.take_damage(1000)
                     #check if there's a layer above the above layer and if so, do an even bigger attack
             if current_layer.layer_above.layer_above:
-                current_layer.layer_above.layer_above.get_cell_at_position(cell.coords).take_damage(1000)
+                takeDamage += current_layer.layer_above.layer_above.get_cell_at_position(cell.coords).take_damage(1000)
                 for direction in damage_directions_first:
                     var temp = current_layer.layer_above.layer_above.get_cell_at_position(cell.coords + direction)
                     if temp:
-                        temp.take_damage(1000)
+                        takeDamage += temp.take_damage(1000)
                 for direction in damage_directions_second:
                     var temp = current_layer.layer_above.layer_above.get_cell_at_position(cell.coords + direction)
                     if temp:
-                        temp.take_damage(1000)
+                        takeDamage += temp.take_damage(1000)
             else:
                 push_warning('%s: no additional above layer specified' % name)
     else:
