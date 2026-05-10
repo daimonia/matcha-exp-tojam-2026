@@ -5,8 +5,7 @@ extends Control
 @export var current_totum_state: Totum.State
 @export var is_selected: bool
 
-@onready var totum_sprite = %TotumSprite
-@onready var glyph_sprite: Sprite2D = $TotumSprite/GlyphSprite
+@onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotumSprite
 
 signal drag_started
 signal drag_dropped
@@ -56,14 +55,17 @@ func _input(event: InputEvent) -> void:
 func update_totum_state(state: Totum.State) -> void:
     current_totum_state = state
 
+    match current_totum_state:
+        Totum.State.Spinning:
+            totum_sprite.play("spin_hotbar")
+        Totum.State.Toppled:
+            totum_sprite.play("toppled")
+        _:
+            totum_sprite.play("holstered_hotbar")
+
 
 func update_totum_glyph(glyph: Glyph) -> void:
-    if glyph == null:
-        glyph_sprite.hide()
-        return
-
-    glyph_sprite.texture = glyph.texture
-    glyph_sprite.show()
+    totum_sprite.show_glyph(glyph)
 
 
 func _on_mouse_entered() -> void:
