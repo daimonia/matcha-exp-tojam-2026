@@ -2,6 +2,9 @@ extends RigidBody2D
 
 class_name Totum
 
+## the total number of faces that a totum has
+const NUM_FACES = 6
+
 enum State {
     Holstered,  #can be clicked in the holster; doesn't appear in world
     Dragging,  #has been clicked; follows mouse; top view
@@ -39,6 +42,11 @@ var snapping_to_mouse = false
 signal state_transitioned
 signal facing_glyph_updated
 signal buff(totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable)
+
+## scuffed way of communicating up the tree that somebody won the game
+## emitted by GlyphActionGoated.on_goat
+## i'm sorry
+signal won_game
 
 
 func _ready() -> void:

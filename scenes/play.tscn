@@ -10,7 +10,6 @@
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
 [ext_resource type="Resource" uid="uid://c8vhqhx5kkhrs" path="res://resources/glyphs/goat_keys_glyph.tres" id="9_efqae"]
 [ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="10_6fc6i"]
-[ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="11_hogub"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -66,12 +65,13 @@ z_index = 1
 position = Vector2(619, -2846)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("11_hogub")])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae"), ExtResource("9_efqae")])
 pull_stiffness = 90.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]
-wait_time = 180.0
+wait_time = 60.0
 autostart = true
 
 [connection signal="go_to_main_menu" from="CanvasLayer/GameEnd" to="." method="_on_game_end_go_to_main_menu"]
+[connection signal="won_game" from="TotumManager" to="." method="_on_totum_manager_won_game"]
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]

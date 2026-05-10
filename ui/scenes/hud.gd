@@ -24,7 +24,7 @@ func set_remaining_time(time: float) -> void:
     var minutes = floor(time / 60)
     var seconds = floor(time - (minutes * 60))
 
-    countdown_label.text = '%d:%2d' % [minutes, seconds]
+    countdown_label.text = '%d:%02d' % [minutes, seconds]
 
 
 func set_selected_totum(totum: Totum) -> void:

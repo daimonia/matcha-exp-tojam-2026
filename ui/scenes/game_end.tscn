@@ -33,9 +33,15 @@ theme_override_constants/margin_bottom = 12
 layout_mode = 2
 theme_override_constants/separation = 24
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1840159885]
+[node name="YouWonLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1840159885]
+visible = false
 layout_mode = 2
-text = "hooray!"
+text = "YOU WIN!!!!!!"
+horizontal_alignment = 1
+
+[node name="YouLoseLabel" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=880190720]
+layout_mode = 2
+text = "not this time :("
 horizontal_alignment = 1
 
 [node name="go to menu" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1907299816]

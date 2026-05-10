@@ -15,32 +15,21 @@ func _ready() -> void:
     if current_layer: #passed by the totum when it attacks
         print('%s: emitting buff' % name)
         buff.emit(BaseGlyphAction.BuffType.Goated, on_goat)
-        #var cell = current_layer.get_cell_at_global_position(global_position)
-        ##check if there's a cell where the totum is and if so, deal damage
-        #if cell:
-            #current_layer.get_cell_at_position(cell.coords).take_damage(1000)
-            ##deal damage to the layer below
-            #current_layer.layer_below.get_cell_at_position(cell.coords).take_damage(1000)
-            ##deal damage to the cardinal directions on same layer
-            #for direction in damage_directions:
-                #var temp = current_layer.get_cell_at_position(cell.coords + direction)
-                #if temp:
-                    #temp.take_damage(1000)
     else:
         push_warning('%s: no current layer specified' % name)
 
-func on_goat(totum: Totum, ...args):
-    print('on_goat', totum, args)
+func on_goat(totum: Totum):
+    print('on_goat', totum)
 
-    var goatsCollected: int = 0
+    var goats_collected: int = 0
     #check if the entire teetotum is covered in goat glyphs
     for glyph in totum.glyphs:
         #check if there's a glyph and if that glyph is a goat
         if (glyph != null) && (glyph.name == "Goat Key"):
-            goatsCollected += 1
-            print("goats collected: " + str(goatsCollected) + " / " + str(totum.glyphs.size()))
-    if goatsCollected == totum.glyphs.size():
-        #size should be 6. It's not hard coded here so I don't crash things by accident
+            goats_collected += 1
+            print("goats collected: " + str(goats_collected) + " / " + str(totum.glyphs.size()))
+    if goats_collected == Totum.NUM_FACES:
+        totum.won_game.emit()
         print("you won the game! gg")
 
 func _on_timer_timeout() -> void:

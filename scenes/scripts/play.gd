@@ -28,9 +28,19 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_game_timer_timeout() -> void:
-    hud.hide()
-    $CanvasLayer/GameEnd.show()
+    end_game(false)
 
 
 func _on_game_end_go_to_main_menu() -> void:
     quit_to_main_menu.emit()
+
+
+func _on_totum_manager_won_game() -> void:
+    end_game(true)
+
+
+func end_game(did_win: bool) -> void:
+    timer.stop()
+    hud.hide()
+    $CanvasLayer/GameEnd.did_win = did_win
+    $CanvasLayer/GameEnd.show()
