@@ -7,3 +7,8 @@ enum Track {Layer1, Layer2, Layer3}
 
 func set_track(track: Track) -> void:
     playback.switch_to_clip_by_name(Track.find_key(track))
+
+
+func _on_finished() -> void:
+    # poor woman's loop
+    play()

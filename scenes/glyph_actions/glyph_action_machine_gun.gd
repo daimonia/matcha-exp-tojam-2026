@@ -9,7 +9,7 @@ var damage_directions: Array[Vector2] = [Vector2(0,1),Vector2(0,-1),Vector2(-1,0
 
 var rng = RandomNumberGenerator.new()
 #number of bullets
-var times = rng.rangei(1,3)
+var times = rng.randi_range(1,3)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,7 +22,7 @@ func _ready() -> void:
         #check if there's a cell where the totum is and if so, deal damage
         if cell:
             takeDamage += current_layer.get_cell_at_position(cell.coords).take_damage(1000)
-            
+
             #deal damage to the cardinal directions on same layer
             for direction in damage_directions:
                 for i in times:

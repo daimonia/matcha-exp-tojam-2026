@@ -46,6 +46,9 @@ enum State {
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
 @onready var toppled_click_hitbox: Area2D = $ToppledClickHitbox
 @onready var physics_hitbox: CollisionShape2D = $ActivePhysicsHitbox
+@onready var audio_player_spin: AudioStreamPlayer2D = $AudioPlayerSpin
+@onready var audio_player_topple: AudioStreamPlayer2D = $AudioPlayerTopple
+@onready var audio_player_holstered: AudioStreamPlayer2D = $AudioPlayerHolstered
 
 var rng = RandomNumberGenerator.new()
 
@@ -101,6 +104,7 @@ func transition_state(next_state: State) -> void:
 
     print("%s: transitioning %s -> %s" % [name, State.find_key(state), State.find_key(next_state)])
 
+    var previous_state = state
     state = next_state
 
     totum_sprite.visible = state != State.Holstered
@@ -109,6 +113,9 @@ func transition_state(next_state: State) -> void:
 
     match state:
         State.Holstered:
+            if previous_state in [State.Attacking, State.Toppled]:
+                audio_player_holstered.play()
+
             facing_glyph_updated.emit(null)
             totum_sprite.show_glyph(null)
             physics_hitbox.disabled = true
@@ -123,8 +130,10 @@ func transition_state(next_state: State) -> void:
         State.Dropped:
             transition_state(State.Spinning)
         State.Spinning:
+            audio_player_spin.play()
             spin_start()
         State.Toppled:
+            audio_player_topple.play()
             topple()
         State.Attacking:
             already_attacked = false
@@ -237,3 +246,9 @@ func _on_toppled_click_hitbox_input_event(
     # TODO controller lol
     if event is InputEventMouseButton and event.is_pressed():
         attack()
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+    match state:
+        State.Spinning:
+            audio_player_spin.play()

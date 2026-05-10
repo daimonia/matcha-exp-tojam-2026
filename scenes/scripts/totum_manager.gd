@@ -31,8 +31,6 @@ func _ready() -> void:
         hotbar.drag_dropped.connect(totum.transition_state.bind(Totum.State.Dropped))
         hotbar.drag_canceled.connect(totum.transition_state.bind(Totum.State.Holstered))
 
-    _on_select_totum(totum_hotbars[0], totums[0])
-
 
 func _on_buff_triggered(_triggering_totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable):
     for totum in totums:

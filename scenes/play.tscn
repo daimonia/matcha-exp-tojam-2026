@@ -8,13 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bqqm6llwpepvb" path="res://scenes/camera_manager.tscn" id="5_hogub"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
-[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
 [ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="9_efqae"]
-[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="10_6fc6i"]
-[ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="11_hogub"]
-[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="13_ogtmt"]
-[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="14_cd23g"]
-[ext_resource type="Resource" uid="uid://c8vhqhx5kkhrs" path="res://resources/glyphs/goat_keys_glyph.tres" id="15_hogub"]
+[ext_resource type="Resource" uid="uid://dfxxdqa5x7s2k" path="res://resources/glyphs/machine_gun_glyph.tres" id="9_rn3jn"]
+[ext_resource type="Resource" uid="uid://cjsdep471csh4" path="res://resources/glyphs/heal_glyph.tres" id="10_i0842"]
+[ext_resource type="Resource" uid="uid://di3ue72y8xnqw" path="res://resources/glyphs/hp_up_glyph.tres" id="10_rn3jn"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -42,7 +39,7 @@ z_index = 1
 position = Vector2(559, -2727)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
 pull_stiffness = 90.0
 pull_damping = 6.0
 
@@ -51,7 +48,7 @@ z_index = 1
 position = Vector2(805, -2731)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
@@ -59,7 +56,7 @@ z_index = 1
 position = Vector2(797, -2823)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
@@ -67,11 +64,11 @@ z_index = 1
 position = Vector2(619, -2846)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("10_6fc6i"), ExtResource("9_efqae"), ExtResource("11_hogub"), ExtResource("13_ogtmt"), ExtResource("14_cd23g"), ExtResource("15_hogub")])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("9_rn3jn"), ExtResource("10_i0842"), ExtResource("10_rn3jn"), null, null])
 pull_stiffness = 90.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]
-wait_time = 60.0
+wait_time = 120.0
 autostart = true
 
 [connection signal="go_to_main_menu" from="CanvasLayer/GameEnd" to="." method="_on_game_end_go_to_main_menu"]

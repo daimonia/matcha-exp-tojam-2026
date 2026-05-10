@@ -3,6 +3,10 @@ extends Control
 signal play_game
 
 @onready var settings_modal = get_node("SettingsModal")
+@onready var audio_player_splash = $AudioPlayerSplash
+
+func _ready() -> void:
+    audio_player_splash.play()
 
 func _on_play() -> void:
     play_game.emit()

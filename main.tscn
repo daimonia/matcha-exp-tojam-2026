@@ -63,5 +63,7 @@ script = ExtResource("7_272bh")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=931265988]
 stream = SubResource("AudioStreamRandomizer_dg77c")
+bus = &"sfx"
 
 [connection signal="play_game" from="Menu/CanvasLayer/MainMenu" to="." method="_on_main_menu_play_game"]
+[connection signal="finished" from="Soundtrack" to="Soundtrack" method="_on_finished"]

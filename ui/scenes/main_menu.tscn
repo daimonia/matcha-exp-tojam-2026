@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://3rq747xwdhl7" path="res://ui/scenes/main_menu.gd" id="2_7vrkn"]
 [ext_resource type="PackedScene" uid="uid://deqqtqxwritr1" path="res://ui/scenes/components/modal.tscn" id="3_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://g8jpjeyae3yk" path="res://ui/scenes/components/settings_menu.tscn" id="4_jix8l"]
+[ext_resource type="AudioStream" uid="uid://ciel5rdvpv3v" path="res://sfx/vox_clayblade.wav" id="4_tc7ta"]
 
 [node name="MainMenu" type="Control" unique_id=1057747084]
 layout_mode = 3
@@ -48,6 +49,11 @@ visible = false
 title = "MY AMAZING SETTINGS :)"
 submit_label = "Save"
 content_scene = ExtResource("4_jix8l")
+
+[node name="AudioPlayerSplash" type="AudioStreamPlayer" parent="." unique_id=1695929113]
+stream = ExtResource("4_tc7ta")
+volume_db = -10.619
+bus = &"sfx"
 
 [connection signal="pressed" from="MarginContainer/MenuButtons/Play" to="." method="_on_play"]
 [connection signal="pressed" from="MarginContainer/MenuButtons/Options" to="." method="_toggle_settings_modal_visible"]
