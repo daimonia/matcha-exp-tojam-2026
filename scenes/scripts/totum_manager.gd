@@ -14,6 +14,7 @@ func _ready() -> void:
         var totum = totums[i]
 
         totum.state_transitioned.connect(hotbar.update_totum_state)
+        totum.facing_glyph_updated.connect(hotbar.update_totum_glyph)
 
         hotbar.drag_started.connect(totum.transition_state.bind(Totum.State.Dragging))
         hotbar.drag_started.connect(_on_select_totum.bind(hotbar, totum))

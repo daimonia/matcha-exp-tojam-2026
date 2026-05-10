@@ -33,18 +33,10 @@ var facing_glyph: Glyph = null
 var already_attacked = false
 
 signal state_transitioned
+signal facing_glyph_updated
 
 func _ready() -> void:
-    _update_glyph()
     transition_state(State.Holstered)
-
-
-func _update_glyph():
-    for glyph in glyphs:
-        if (glyph_visible == true):
-            var sprite = Sprite2D.new()
-            sprite.texture = glyph.texture
-            add_child(sprite)
 
 
 func transition_state(next_state: State) -> void:
@@ -59,8 +51,9 @@ func transition_state(next_state: State) -> void:
 
     state_transitioned.emit(state)
 
-    if state in [State.Holstered, State.Dragging, State.Dropped, State.Spinning]:
+    if state in [State.Holstered, State.Dragging, State.Dropped, State.Spinning] and facing_glyph_sprite.visible:
         facing_glyph_sprite.hide()
+        facing_glyph_updated.emit(null)
 
     match state:
         State.Dropped:
@@ -94,6 +87,8 @@ func topple():
     facing_glyph = glyphs[facing_glyph_index]
     facing_glyph_sprite.texture = facing_glyph.texture
     facing_glyph_sprite.show()
+
+    facing_glyph_updated.emit(facing_glyph)
 
 
 func attack():
