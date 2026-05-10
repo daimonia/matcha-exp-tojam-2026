@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dn27vbdo2jwcs"]
+
+[ext_resource type="Script" uid="uid://bc6tyb4jhxo4u" path="res://ui/scenes/rewards_panel.gd" id="1_65qle"]
+[ext_resource type="PackedScene" uid="uid://bagjtx4cbu5x8" path="res://ui/scenes/draggable_reward.tscn" id="1_r7nyu"]
+[ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="2_pmftn"]
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="2_ru46m"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="3_1n2pu"]
+[ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="4_hw2qh"]
+[ext_resource type="Resource" uid="uid://xcy4enqifj06" path="res://resources/glyphs/defense_up_glyph.tres" id="6_igihl"]
+
+[node name="RewardsPanel" type="Panel" unique_id=1879407848]
+custom_minimum_size = Vector2(0, 256)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65qle")
+rewards = Array[ExtResource("2_ru46m")]([ExtResource("3_1n2pu"), ExtResource("4_hw2qh"), ExtResource("2_pmftn"), ExtResource("6_igihl")])
+draggable_reward_scene = ExtResource("1_r7nyu")
+
+[node name="Label" type="Label" parent="." unique_id=265331064]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_right = 78.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "your rewards, kitten :)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1147112019]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -105.0
+offset_bottom = 105.0
+grow_horizontal = 2
+grow_vertical = 2

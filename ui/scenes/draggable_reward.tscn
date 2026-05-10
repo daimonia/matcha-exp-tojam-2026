@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bagjtx4cbu5x8"]
+
+[ext_resource type="Texture2D" uid="uid://4vtm4vmehwty" path="res://art/glyphs/glyph_goat.PNG" id="1_rb2mm"]
+[ext_resource type="Script" uid="uid://bryvodoo7ljp7" path="res://ui/scenes/draggable_reward.gd" id="2_xcw4e"]
+
+[node name="DraggableReward" type="TextureRect" unique_id=1081765999]
+custom_minimum_size = Vector2(32, 32)
+size_flags_horizontal = 6
+size_flags_vertical = 0
+texture = ExtResource("1_rb2mm")
+expand_mode = 4
+stretch_mode = 5
+script = ExtResource("2_xcw4e")

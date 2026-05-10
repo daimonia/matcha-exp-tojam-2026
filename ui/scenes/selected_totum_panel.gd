@@ -3,7 +3,6 @@ extends HBoxContainer
 class_name SelectedTotumPanel
 
 
-@export var blank_face_texture: Texture2D
 @export var totum: Totum
 
 func _ready():
@@ -18,15 +17,16 @@ func set_totum(_totum: Totum) -> void:
     else:
         show()
 
-    var rects: Array[TextureRect]
+    var droppable_faces: Array[TextureRect]
 
     for child in get_children():
-        if child is TextureRect:
-            rects.append(child)
+        if child is DroppableTotumFace:
+            droppable_faces.append(child)
 
     for i in range(6):
         if i > totum.glyphs.size() - 1:
-            rects[i].texture = blank_face_texture
+            droppable_faces[i].set_glyph(null)
             continue
+
         var glyph = totum.glyphs[i]
-        rects[i].texture = glyph.texture
+        droppable_faces[i].set_glyph(glyph)

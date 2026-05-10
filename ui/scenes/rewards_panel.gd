@@ -1,0 +1,43 @@
+extends Panel
+
+class_name RewardsPanel
+
+@export var rewards: Array[Glyph]
+@export var draggable_reward_scene: PackedScene  # DraggableReward
+
+
+@onready var draggable_rewards_container: Container = $HBoxContainer
+
+signal finished_picking
+
+var num_picked: int = 0
+
+func _ready():
+    # trigger setter to update our awesome graphix
+    populate_rewards(rewards)
+
+## populate a fresh set of rewards.
+func populate_rewards(_rewards: Array[Glyph]):
+    rewards = _rewards
+    num_picked = 0
+
+    for child in draggable_rewards_container.get_children():
+        child.queue_free()
+
+    for reward in rewards:
+        var draggable: DraggableReward = draggable_reward_scene.instantiate()
+        draggable.set_glyph(reward)
+        draggable.drop_finished.connect(reward_used.bind(draggable, reward))
+        draggable_rewards_container.add_child(draggable)
+
+    if rewards.size() == 0:
+        hide()
+    else:
+        show()
+
+
+func reward_used(draggable: DraggableReward, _glyph: Glyph):
+    draggable.queue_free()
+    num_picked += 1
+    if num_picked >= 2:
+        finished_picking.emit()

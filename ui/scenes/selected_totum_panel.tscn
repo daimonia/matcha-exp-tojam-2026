@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cgtpjra376yrv"]
 
 [ext_resource type="Script" uid="uid://bf8lj74n26pn7" path="res://ui/scenes/selected_totum_panel.gd" id="1_rgwyl"]
-[ext_resource type="Texture2D" uid="uid://bggk6p6tfa70x" path="res://art/totum/side_flat.PNG" id="2_3mdrk"]
-[ext_resource type="Texture2D" uid="uid://4vtm4vmehwty" path="res://art/glyphs/glyph_goat.PNG" id="2_6uevc"]
+[ext_resource type="PackedScene" uid="uid://caxx2kn447cd1" path="res://ui/scenes/droppable_totum_face.tscn" id="3_3mdrk"]
+[ext_resource type="Texture2D" uid="uid://dvn6pts0ypp48" path="res://art/totum/side_threequarter.PNG" id="3_6uevc"]
 
 [node name="HBoxContainer" type="HBoxContainer" unique_id=2118665675]
 custom_minimum_size = Vector2(0, 10)
@@ -12,52 +12,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rgwyl")
-blank_face_texture = ExtResource("2_3mdrk")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1389380161]
+[node name="DroppableTotumFace" parent="." unique_id=2117865294 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=127503]
+[node name="DroppableTotumFace2" parent="." unique_id=1783271138 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=1976981061]
+[node name="DroppableTotumFace3" parent="." unique_id=849505152 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")
 
-[node name="TextureRect4" type="TextureRect" parent="." unique_id=1720177466]
+[node name="DroppableTotumFace4" parent="." unique_id=1763880044 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")
 
-[node name="TextureRect5" type="TextureRect" parent="." unique_id=295973608]
+[node name="DroppableTotumFace5" parent="." unique_id=11482409 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")
 
-[node name="TextureRect6" type="TextureRect" parent="." unique_id=172728512]
+[node name="DroppableTotumFace6" parent="." unique_id=556847710 instance=ExtResource("3_3mdrk")]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-texture = ExtResource("2_6uevc")
-expand_mode = 4
-stretch_mode = 5
+blank_face_texture = ExtResource("3_6uevc")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://caxx2kn447cd1"]
+
+[ext_resource type="Texture2D" uid="uid://4vtm4vmehwty" path="res://art/glyphs/glyph_goat.PNG" id="1_sqgp5"]
+[ext_resource type="Script" uid="uid://dyiu4pnglxgtv" path="res://ui/scenes/droppable_totum_face.gd" id="2_b5dlq"]
+
+[node name="DroppableTotumFace" type="TextureRect" unique_id=2117865294]
+custom_minimum_size = Vector2(32, 32)
+size_flags_horizontal = 3
+size_flags_vertical = 0
+texture = ExtResource("1_sqgp5")
+expand_mode = 4
+stretch_mode = 5
+script = ExtResource("2_b5dlq")
