@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
 [ext_resource type="Resource" uid="uid://dmffba3ohvaqa" path="res://resources/glyphs/burst_glyph.tres" id="9_efqae"]
+[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="9_r6ama"]
 [ext_resource type="Resource" uid="uid://dfxxdqa5x7s2k" path="res://resources/glyphs/machine_gun_glyph.tres" id="9_rn3jn"]
 [ext_resource type="Resource" uid="uid://cjsdep471csh4" path="res://resources/glyphs/heal_glyph.tres" id="10_i0842"]
 [ext_resource type="Resource" uid="uid://di3ue72y8xnqw" path="res://resources/glyphs/hp_up_glyph.tres" id="10_rn3jn"]
@@ -39,7 +40,7 @@ z_index = 1
 position = Vector2(559, -2727)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_r6ama"), ExtResource("9_efqae"), ExtResource("10_i0842"), null, null, null])
 pull_stiffness = 90.0
 pull_damping = 6.0
 
@@ -48,7 +49,7 @@ z_index = 1
 position = Vector2(805, -2731)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_rn3jn"), ExtResource("9_rn3jn"), ExtResource("9_rn3jn"), null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
@@ -56,7 +57,7 @@ z_index = 1
 position = Vector2(797, -2823)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([null, null, null, null, null, null])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("10_i0842"), ExtResource("10_i0842"), null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
@@ -64,7 +65,7 @@ z_index = 1
 position = Vector2(619, -2846)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("9_rn3jn"), ExtResource("10_i0842"), ExtResource("10_rn3jn"), null, null])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("9_efqae"), ExtResource("9_rn3jn"), ExtResource("10_rn3jn"), null, null, null])
 pull_stiffness = 90.0
 
 [node name="GameTimer" type="Timer" parent="." unique_id=467436725]

@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://b2nvggj67getn"]
 
+[ext_resource type="PackedScene" uid="uid://bx4v1ak7htu2b" path="res://scenes/glyph_actions/glyph_action_down_wide.tscn" id="1_ub7dk"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_ykmwv"]
 [ext_resource type="Texture2D" uid="uid://dw0p7r5gfbjy7" path="res://art/glyphs/glyph_downwide.PNG" id="2_36ti8"]
 
@@ -8,4 +9,5 @@ script = ExtResource("1_ykmwv")
 name = "Down Wide"
 texture = ExtResource("2_36ti8")
 description = "Drills down shallow and destroys a few tiles around"
+action_node = ExtResource("1_ub7dk")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"
