@@ -4,6 +4,8 @@ extends Node
 @export var hud: HUD
 @export var totums: Array[Totum]
 
+signal won_game
+
 var selected_totum: Totum = null
 
 func _ready() -> void:
@@ -17,6 +19,8 @@ func _ready() -> void:
         totum.facing_glyph_updated.connect(hotbar.update_totum_glyph)
         totum.buff.connect(_on_buff_triggered)
 
+        totum.won_game.connect(func(): won_game.emit())
+
         hotbar.drag_started.connect(totum.transition_state.bind(Totum.State.Dragging))
         hotbar.drag_started.connect(_on_select_totum.bind(hotbar, totum))
         hotbar.drag_dropped.connect(totum.transition_state.bind(Totum.State.Dropped))
@@ -24,7 +28,6 @@ func _ready() -> void:
 
 
 func _on_buff_triggered(_triggering_totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable):
-    print('%s: received buff %s' % [name, buff_type])
     for totum in totums:
         callback.call(totum)
 
