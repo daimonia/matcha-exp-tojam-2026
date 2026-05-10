@@ -28,9 +28,9 @@ func on_goat(totum: Totum):
         if (glyph != null) && (glyph.name == "Goat Key"):
             goats_collected += 1
             print("goats collected: " + str(goats_collected) + " / " + str(totum.glyphs.size()))
-    if goats_collected == Totum.NUM_FACES:
+    # if goats_collected == Totum.NUM_FACES:
+    if goats_collected > 0:  # for demo purposes
         totum.won_game.emit()
-        print("you won the game! gg")
 
 func _on_timer_timeout() -> void:
     attack_ended.emit()

@@ -53,7 +53,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="World" parent="Menu" unique_id=997904528 instance=ExtResource("2_0xm2m")]
-position = Vector2(-4197, -3376)
+position = Vector2(-118.999954, -113)
+scale = Vector2(0.18, 0.18)
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="." unique_id=39387055]
 unique_name_in_owner = true
