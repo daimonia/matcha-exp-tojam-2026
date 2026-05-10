@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cd2usxb5bt5da" path="res://ui/scenes/hud.tscn" id="1_bofkp"]
 [ext_resource type="Script" uid="uid://ckwcw8vd25grp" path="res://scenes/scripts/play.gd" id="1_hsi3f"]
 [ext_resource type="PackedScene" uid="uid://bm5be07planhu" path="res://ui/scenes/game_end.tscn" id="2_efqae"]
-[ext_resource type="Script" uid="uid://e521ytpc6w77" path="res://scenes/scripts/camera.gd" id="3_bq38n"]
 [ext_resource type="Script" uid="uid://1lskgmh3a412" path="res://scenes/scripts/totum_manager.gd" id="5_65v2a"]
+[ext_resource type="PackedScene" uid="uid://bqqm6llwpepvb" path="res://scenes/camera_manager.tscn" id="5_hogub"]
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
 [ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
@@ -30,11 +30,7 @@ mouse_filter = 2
 [node name="World" parent="." unique_id=997904528 instance=ExtResource("1_8r3iy")]
 position = Vector2(-3260, -2664)
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1116750704]
-position = Vector2(635, 362)
-zoom = Vector2(0.5, 0.5)
-script = ExtResource("3_bq38n")
-max_speed = 1000.0
+[node name="CameraManager" parent="." unique_id=1158620371 instance=ExtResource("5_hogub")]
 
 [node name="TotumManager" type="Node" parent="." unique_id=1137852124 node_paths=PackedStringArray("hud", "totums")]
 script = ExtResource("5_65v2a")
