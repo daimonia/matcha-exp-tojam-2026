@@ -30,6 +30,11 @@ func _ready() -> void:
                         var tempDirection = current_layer.get_cell_at_position(cell.coords + direction)
                         takeDamage += tempDirection.take_damage(1000)
                     temp = current_layer.layer_below.get_cell_at_position(cell.coords)
+        #if the totum is shielded, remove it, otherwise, deal damage to it
+        if totum_that_spawned_me.shield == true:
+            totum_that_spawned_me.shield = false
+        elif takeDamage > 0:
+            totum_that_spawned_me.hp -= takeDamage
     else:
         push_warning('%s: no current layer specified' % name)
 

@@ -37,10 +37,10 @@ func _ready() -> void:
                     takeDamage += temp.take_damage(1000)
                     
         #if the totum is shielded, remove it, otherwise, deal damage to it
-        #if totum.shield == true:
-            #totum.shield = false
-        #elif takeDamage > 0:
-            #totum.hp -= takeDamage
+        if totum_that_spawned_me.shield == true:
+            totum_that_spawned_me.shield = false
+        elif takeDamage > 0:
+            totum_that_spawned_me.hp -= takeDamage
     else:
         push_warning('%s: no current layer specified' % name)
 
