@@ -5,8 +5,8 @@ class_name RewardsPanel
 @export var rewards: Array[Glyph]
 @export var draggable_reward_scene: PackedScene  # DraggableReward
 
-
 @onready var draggable_rewards_container: Container = $HBoxContainer
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 signal finished_picking
 
@@ -33,6 +33,7 @@ func populate_rewards(_rewards: Array[Glyph]):
     if rewards.size() == 0:
         hide()
     else:
+        audio_player.play()
         show()
 
 
