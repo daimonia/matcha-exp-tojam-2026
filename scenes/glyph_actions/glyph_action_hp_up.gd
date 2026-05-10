@@ -13,7 +13,7 @@ func _ready() -> void:
     audio_player.play()
 
     if current_layer: #passed by the totum when it attacks
-        buff.emit(BaseGlyphAction.BuffType.Heal, on_heal)
+        buff.emit(BaseGlyphAction.BuffType.HpUp, on_hp_up)
         #var cell = current_layer.get_cell_at_global_position(global_position)
         ##check if there's a cell where the totum is and if so, deal damage
         #if cell:
@@ -28,10 +28,8 @@ func _ready() -> void:
     else:
         push_warning('%s: no current layer specified' % name)
 
-func on_heal(totum: Totum):
-    totum.hp +=30
-    if totum.hp > totum.max_hp:
-        totum.hp = totum.max_hp
+func on_hp_up(totum: Totum):
+    totum.max_hp +=5
 
 func _on_timer_timeout() -> void:
     attack_ended.emit()

@@ -8,4 +8,4 @@ signal attack_ended
 signal buff
 
 
-enum BuffType { Goated, Heal }
+enum BuffType { Goated, Heal, HpUp, DefUp }

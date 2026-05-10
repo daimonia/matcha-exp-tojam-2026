@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://xcy4enqifj06"]
 
+[ext_resource type="PackedScene" uid="uid://d0jytwas1vai3" path="res://scenes/glyph_actions/glyph_action_defense_up.tscn" id="1_7qdof"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_bdyla"]
 [ext_resource type="Texture2D" uid="uid://782lyn51nk2o" path="res://art/glyphs/glyph_def_up.PNG" id="2_pf2yu"]
 
@@ -7,4 +8,6 @@
 script = ExtResource("1_bdyla")
 name = "Defense Up"
 texture = ExtResource("2_pf2yu")
+description = "Makes your clayblades immune to damage for 1 use"
+action_node = ExtResource("1_7qdof")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"

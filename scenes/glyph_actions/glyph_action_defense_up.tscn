@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d0jytwas1vai3"]
+
+[ext_resource type="Script" uid="uid://cs24wq86s4yug" path="res://scenes/glyph_actions/glyph_action_defense_up.gd" id="1_s78ah"]
+[ext_resource type="Texture2D" uid="uid://dcg0bv6ombyen" path="res://art/totum/ClaybladeSpriteSheet.png" id="2_30hvb"]
+[ext_resource type="AudioStream" uid="uid://cdxb421e3f3mq" path="res://sfx/buff_1.wav" id="3_tj3n7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87q1p"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(2560, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhm7i"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(2816, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn2al"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(3072, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb2ef"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(3328, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i54dw"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(3584, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xame7"]
+atlas = ExtResource("2_30hvb")
+region = Rect2(3840, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85sva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87q1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhm7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn2al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb2ef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i54dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xame7")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="GlyphActionDefenseUp" type="Node2D" unique_id=74806801]
+script = ExtResource("1_s78ah")
+
+[node name="Timer" type="Timer" parent="." unique_id=785671543]
+autostart = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=188507680]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_85sva")
+frame = 5
+frame_progress = 1.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=322104997]
+stream = ExtResource("3_tj3n7")
+bus = &"sfx"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

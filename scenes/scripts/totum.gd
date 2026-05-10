@@ -22,11 +22,13 @@ enum State {
 
 @export var glyphs: Array[Glyph] = []
 @export var glyph_visible: bool
-@export var hp: int = 50
+@export var max_hp: int = 50
 @export var pull_stiffness = 60.0
 @export var pull_damping = 5.0
 @export var drag = 0.9
+@export var shield: bool = true #add an if statement to the damage function to prevent all damage 1 attack and set this to false
 
+@onready var hp: int = max_hp
 @onready var timer: Timer = $Timer
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
 @onready var toppled_click_hitbox: Area2D = $ToppledClickHitbox
