@@ -2,7 +2,7 @@ extends Camera2D
 
 
 @export var max_speed: float = 1.0
-@export var zoom_speed: float = 0.1
+@export var zoom_speed: float = 0.5
 
 var velocity: Vector2 = Vector2(0, 0)
 var zoom_velocity: Vector2 = Vector2(0, 0)
@@ -20,6 +20,8 @@ func _input(event: InputEvent) -> void:
     if event.is_action_pressed("ZoomIn"):
         zoom_velocity = Vector2(zoom_speed, zoom_speed)
     elif event.is_action_pressed("ZoomOut"):
-        zoom_velocity = -Vector2(zoom_speed, zoom_speed)
+        zoom_velocity = Vector2(-zoom_speed, -zoom_speed)
     else:
         zoom_velocity = Vector2.ZERO
+    #this is a test of zoom velocity
+    #zoom += zoom_velocity

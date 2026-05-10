@@ -31,7 +31,6 @@ position = Vector2(635, 362)
 zoom = Vector2(0.5, 0.5)
 script = ExtResource("3_bq38n")
 max_speed = 1000.0
-zoom_speed = 10.0
 
 [node name="TotumManager" type="Node" parent="." unique_id=1137852124 node_paths=PackedStringArray("hud", "totums")]
 script = ExtResource("5_65v2a")
