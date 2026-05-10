@@ -5,9 +5,14 @@
 
 [node name="DroppableTotumFace" type="TextureRect" unique_id=2117865294]
 custom_minimum_size = Vector2(32, 32)
+offset_right = 32.0
+offset_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 texture = ExtResource("1_sqgp5")
 expand_mode = 4
 stretch_mode = 5
 script = ExtResource("2_b5dlq")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

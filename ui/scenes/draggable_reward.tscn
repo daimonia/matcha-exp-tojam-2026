@@ -11,3 +11,6 @@ texture = ExtResource("1_rb2mm")
 expand_mode = 4
 stretch_mode = 5
 script = ExtResource("2_xcw4e")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

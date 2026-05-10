@@ -2,6 +2,10 @@ extends TextureRect
 
 class_name DroppableTotumFace
 
+signal hover_started
+signal hover_ended
+signal dropped_glyph(glyph: Glyph)
+
 @export var blank_face_texture: Texture2D
 
 @export var glyph: Glyph:
@@ -13,8 +17,6 @@ class_name DroppableTotumFace
             return
 
         texture = glyph.texture
-
-signal dropped_glyph(glyph: Glyph)
 
 func set_glyph(_glyph: Glyph):
     glyph = _glyph
@@ -30,3 +32,9 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
     set_glyph(data)
     dropped_glyph.emit(data)
+
+func _on_mouse_entered() -> void:
+    hover_started.emit(glyph)
+
+func _on_mouse_exited() -> void:
+    hover_ended.emit()

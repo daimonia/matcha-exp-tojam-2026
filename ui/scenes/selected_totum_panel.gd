@@ -2,11 +2,18 @@ extends HBoxContainer
 
 class_name SelectedTotumPanel
 
+signal hover_started
+signal hover_ended
 
 @export var totum: Totum
 
 func _ready():
     set_totum(totum)
+
+    for child in get_children():
+        if child is DroppableTotumFace:
+            child.hover_started.connect(hover_started.emit)
+            child.hover_ended.connect(hover_ended.emit)
 
 func set_totum(_totum: Totum) -> void:
     totum = _totum

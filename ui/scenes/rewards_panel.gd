@@ -2,13 +2,15 @@ extends Panel
 
 class_name RewardsPanel
 
+signal hover_started
+signal hover_ended
+signal finished_picking
+
 @export var rewards: Array[Glyph]
 @export var draggable_reward_scene: PackedScene  # DraggableReward
 
 @onready var draggable_rewards_container: Container = $HBoxContainer
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
-
-signal finished_picking
 
 var num_picked: int = 0
 
@@ -28,6 +30,8 @@ func populate_rewards(_rewards: Array[Glyph]):
         var draggable: DraggableReward = draggable_reward_scene.instantiate()
         draggable.set_glyph(reward)
         draggable.drop_finished.connect(reward_used.bind(draggable, reward))
+        draggable.hover_started.connect(hover_started.emit)
+        draggable.hover_ended.connect(hover_ended.emit)
         draggable_rewards_container.add_child(draggable)
 
     if rewards.size() == 0:

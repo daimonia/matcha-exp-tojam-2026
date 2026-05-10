@@ -99,4 +99,22 @@ theme_override_constants/margin_bottom = 16
 [node name="SelectedTotumPanel" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=1014020078 instance=ExtResource("3_11rbf")]
 layout_mode = 2
 
+[node name="GlyphNameLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1508416005]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+vertical_alignment = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="GlyphDescriptionLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=78983229]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+autowrap_mode = 3
+text_overrun_behavior = 3
+
 [connection signal="finished_picking" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_finished_picking"]
+[connection signal="hover_ended" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_hover_ended"]
+[connection signal="hover_started" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_hover_started"]
+[connection signal="hover_ended" from="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/SelectedTotumPanel" to="." method="_on_selected_totum_panel_hover_ended"]
+[connection signal="hover_started" from="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel/MarginContainer/SelectedTotumPanel" to="." method="_on_selected_totum_panel_hover_started"]
