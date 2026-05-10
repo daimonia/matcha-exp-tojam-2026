@@ -17,6 +17,14 @@ func _process(_delta: float) -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _input(event: InputEvent) -> void:
+    if event.is_action("EndGame") and event.is_pressed() and not event.is_echo():
+        if $CanvasLayer/GameEnd.visible:
+            # if the menu is already up, pressing esc again quits the game
+            get_tree().quit()
+
+        end_game(false)
+        return
+
     if event is InputEventKey:
         match event.physical_keycode:
             49:
