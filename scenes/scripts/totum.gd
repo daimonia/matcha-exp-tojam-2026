@@ -22,13 +22,21 @@ enum State {
 
 @export var glyphs: Array[Glyph] = []
 @export var glyph_visible: bool
-@export var max_hp: int = 50
+@export var max_hp: int = 50:
+    set(value):
+        max_hp = value
+        max_hp_changed.emit(max_hp)
+
 @export var pull_stiffness = 60.0
 @export var pull_damping = 5.0
 @export var drag = 0.9
 @export var shield: bool = true #add an if statement to the damage function to prevent all damage 1 attack and set this to false
 
-@onready var hp: int = max_hp
+@onready var hp: int = max_hp:
+    set(value):
+        hp = value
+        current_hp_changed.emit(hp)
+
 @onready var timer: Timer = $Timer
 @onready var totum_sprite: AnimatedTotumSprite = $AnimatedTotum
 @onready var toppled_click_hitbox: Area2D = $ToppledClickHitbox
@@ -44,6 +52,8 @@ var snapping_to_mouse = false
 signal state_transitioned
 signal facing_glyph_updated
 signal buff(totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable)
+signal current_hp_changed
+signal max_hp_changed
 
 ## scuffed way of communicating up the tree that somebody won the game
 signal won_game

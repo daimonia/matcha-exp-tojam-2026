@@ -19,6 +19,11 @@ func _ready() -> void:
         totum.facing_glyph_updated.connect(hotbar.update_totum_glyph)
         totum.buff.connect(_on_buff_triggered)
 
+        hotbar.current_totum_max_hp = totum.max_hp
+        hotbar.current_totum_hp = totum.hp
+        totum.max_hp_changed.connect(hotbar.update_totum_max_hp)
+        totum.current_hp_changed.connect(hotbar.update_totum_hp)
+
         totum.won_game.connect(func(): won_game.emit())
 
         hotbar.drag_started.connect(totum.transition_state.bind(Totum.State.Dragging))
