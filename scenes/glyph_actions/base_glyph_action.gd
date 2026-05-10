@@ -6,3 +6,6 @@ class_name BaseGlyphAction
 
 signal attack_ended
 signal buff
+
+
+enum BuffType { Goated, Heal }

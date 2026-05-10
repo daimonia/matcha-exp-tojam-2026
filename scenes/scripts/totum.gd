@@ -38,7 +38,7 @@ var snapping_to_mouse = false
 
 signal state_transitioned
 signal facing_glyph_updated
-signal buff(totum: Totum, callback: Callable)
+signal buff(totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable)
 
 
 func _ready() -> void:
@@ -126,12 +126,17 @@ func attack():
         assert(attack_node is BaseGlyphAction, "action node must inherit BaseGlyphAction")
         attack_node.current_layer = get_current_layer()
 
-        add_child(attack_node)
         attack_node.attack_ended.connect(transition_state.bind(State.Holstered))
 
         # if the attack node emits a buff, re-emit that signal so that TotumManager can handle it
-        attack_node.buff.connect(func(cb: Callable): buff.emit(self, cb))
+        attack_node.buff.connect(
+            func(buff_type: BaseGlyphAction.BuffType, cb: Callable):
+                print('%s: received buff' % name)
+                print('  re-emitting ', buff_type, cb)
+                buff.emit(self, buff_type, cb)
+        )
 
+        add_child(attack_node)
         transition_state(State.Attacking)
     else:
         transition_state(State.Holstered)

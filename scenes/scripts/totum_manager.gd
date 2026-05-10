@@ -23,7 +23,8 @@ func _ready() -> void:
         hotbar.drag_canceled.connect(totum.transition_state.bind(Totum.State.Holstered))
 
 
-func _on_buff_triggered(_triggering_totum: Totum, callback: Callable):
+func _on_buff_triggered(_triggering_totum: Totum, buff_type: BaseGlyphAction.BuffType, callback: Callable):
+    print('%s: received buff %s' % [name, buff_type])
     for totum in totums:
         callback.call(totum)
 

@@ -13,7 +13,7 @@ func _ready() -> void:
     audio_player.play()
 
     if current_layer: #passed by the totum when it attacks
-        buff.emit("heal",on_heal)
+        buff.emit(BaseGlyphAction.BuffType.Heal, on_heal)
         #var cell = current_layer.get_cell_at_global_position(global_position)
         ##check if there's a cell where the totum is and if so, deal damage
         #if cell:

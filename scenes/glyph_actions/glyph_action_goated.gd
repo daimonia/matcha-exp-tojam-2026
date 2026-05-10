@@ -13,7 +13,8 @@ func _ready() -> void:
     audio_player.play()
 
     if current_layer: #passed by the totum when it attacks
-        buff.emit("goated",on_goat)
+        print('%s: emitting buff' % name)
+        buff.emit(BaseGlyphAction.BuffType.Goated, on_goat)
         #var cell = current_layer.get_cell_at_global_position(global_position)
         ##check if there's a cell where the totum is and if so, deal damage
         #if cell:
@@ -28,7 +29,9 @@ func _ready() -> void:
     else:
         push_warning('%s: no current layer specified' % name)
 
-func on_goat(totum: Totum):
+func on_goat(totum: Totum, ...args):
+    print('on_goat', totum, args)
+
     var goatsCollected: int = 0
     #check if the entire teetotum is covered in goat glyphs
     for glyph in totum.glyphs:
@@ -36,7 +39,7 @@ func on_goat(totum: Totum):
         if (glyph != null) && (glyph.name == "Goat Key"):
             goatsCollected += 1
             print("goats collected: " + str(goatsCollected) + " / " + str(totum.glyphs.size()))
-    if goatsCollected == totum.glyphs.size(): 
+    if goatsCollected == totum.glyphs.size():
         #size should be 6. It's not hard coded here so I don't crash things by accident
         print("you won the game! gg")
 
