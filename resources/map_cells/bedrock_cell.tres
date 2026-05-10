@@ -7,5 +7,5 @@
 script = ExtResource("2_wb80d")
 name = "Bedrock"
 hp = 10000
-cell_type = 5
+cell_type = 12
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

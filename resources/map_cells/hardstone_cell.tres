@@ -14,6 +14,6 @@ script = ExtResource("2_sjlow")
 name = "HardStone"
 hp = 10
 dmg = 4
-cell_type = 4
+cell_type = 7
 rewards = Array[ExtResource("1_7pxc7")]([ExtResource("2_upa0t"), ExtResource("3_mv7s8"), ExtResource("4_synr4"), ExtResource("5_8lgft"), ExtResource("6_7u53y"), ExtResource("7_elhyl")])
 metadata/_custom_type_script = "uid://borxkduvhl3kr"

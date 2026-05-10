@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://cdhjs2yj534gx"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_kal6j"]
+[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="2_g1p2n"]
+[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="3_h5lrt"]
+[ext_resource type="Resource" uid="uid://bu0s6cpm7xtws" path="res://resources/glyphs/ravine_glyph.tres" id="4_ppm3e"]
+[ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="5_xal5o"]
+[ext_resource type="Resource" uid="uid://cka0a2gcx00eo" path="res://resources/glyphs/walk_glyph.tres" id="6_xkybf"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="7_dfbqe"]
+
+[resource]
+script = ExtResource("7_dfbqe")
+name = "Road"
+hp = 3
+dmg = 2
+cell_type = 6
+rewards = Array[ExtResource("1_kal6j")]([ExtResource("2_g1p2n"), ExtResource("3_h5lrt"), ExtResource("4_ppm3e"), ExtResource("5_xal5o"), ExtResource("6_xkybf")])
+metadata/_custom_type_script = "uid://borxkduvhl3kr"

@@ -19,8 +19,6 @@ class_name WorldLayer
         collision_body.collision_layer = 1 << depth   # bit N for depth N
         collision_body.collision_mask = 0
 
-        print('%s: collision layer %d, collision mask %d' % [name, collision_body.collision_layer, collision_body.collision_mask])
-
 ## the TileMapLayer that contains the actual map design
 @onready var tile_map_layer_world: TileMapLayer = $TileMapLayer
 

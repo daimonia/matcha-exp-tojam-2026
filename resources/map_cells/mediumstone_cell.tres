@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://diwms6hybknme"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_m3eph"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="8_3cqax"]
+
+[resource]
+script = ExtResource("8_3cqax")
+name = "MediumStone"
+hp = 10
+dmg = 4
+cell_type = 8
+metadata/_custom_type_script = "uid://borxkduvhl3kr"

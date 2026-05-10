@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="MapCellDefinition" format=3 uid="uid://dfbdlpnxpqa2k"]
+
+[ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_o5lgc"]
+[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="2_mj61u"]
+[ext_resource type="Resource" uid="uid://cjox5c1nh7fnh" path="res://resources/glyphs/down_deep_glyph.tres" id="3_xy4jy"]
+[ext_resource type="Resource" uid="uid://b2nvggj67getn" path="res://resources/glyphs/down_wide_glyph.tres" id="4_200qc"]
+[ext_resource type="Resource" uid="uid://dpar3iv5jnqek" path="res://resources/glyphs/spiral_glyph.tres" id="5_aggpi"]
+[ext_resource type="Resource" uid="uid://wde83rpq2g8l" path="res://resources/glyphs/up_out_glyph.tres" id="6_0u4va"]
+[ext_resource type="Script" uid="uid://borxkduvhl3kr" path="res://resources/types/map_cell_definition.gd" id="7_7upem"]
+
+[resource]
+script = ExtResource("7_7upem")
+name = "ObjectBuilding"
+hp = 7
+dmg = 1
+cell_type = 14
+rewards = Array[ExtResource("1_o5lgc")]([ExtResource("2_mj61u"), ExtResource("3_xy4jy"), ExtResource("4_200qc"), ExtResource("5_aggpi"), ExtResource("6_0u4va")])
+metadata/_custom_type_script = "uid://borxkduvhl3kr"
