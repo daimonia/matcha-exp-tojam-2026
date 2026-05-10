@@ -26,7 +26,8 @@ class MapCellInstance:
     var cell_type: CellType
     var max_hp: int
     var rewards: Array[Glyph] = []
-
+    var dmg: int
+    
     ## this cell's (x, y) coordinates in the WorldLayer
     var coords: Vector2
 
@@ -34,18 +35,20 @@ class MapCellInstance:
 
     signal destroyed
 
-    func _init(_cell_type: CellType, _max_hp: int = 10, _rewards: Array[Glyph] = []):
+    func _init(_cell_type: CellType, _max_hp: int = 10, _rewards: Array[Glyph] = [], _dmg: int = 0):
         cell_type = _cell_type
 
         max_hp = _max_hp
         current_hp = max_hp
 
         rewards = _rewards
+        dmg = _dmg
 
-    func take_damage(amount: int) -> void:
+    func take_damage(amount: int) -> int:
         current_hp = clamp(current_hp - amount, 0, max_hp)
         if current_hp <= 0:
             destroyed.emit()
+        return dmg
 
     ## whether this cell instance is an "object" (e.g. a tree) rather than a Minecraft block
     func is_object() -> bool:
@@ -57,4 +60,4 @@ class MapCellInstance:
         ]
 
     static func from_definition(definition: MapCellDefinition) -> MapCellInstance:
-        return MapCellInstance.new(definition.cell_type, definition.hp, definition.rewards)
+        return MapCellInstance.new(definition.cell_type, definition.hp, definition.rewards, definition.dmg)
