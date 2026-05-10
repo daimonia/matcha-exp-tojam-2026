@@ -1,7 +1,13 @@
 [gd_resource type="Resource" script_class="Glyph" format=3 uid="uid://wde83rpq2g8l"]
 
+[ext_resource type="PackedScene" uid="uid://bdy3ym1u8l1r1" path="res://scenes/glyph_actions/glyph_action_up_out.tscn" id="1_kfpsf"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="1_pie8k"]
+[ext_resource type="Texture2D" uid="uid://cfa6cfyrjxskb" path="res://art/glyphs/glyph_upandout.PNG" id="3_by38f"]
 
 [resource]
 script = ExtResource("1_pie8k")
+name = "Up Out"
+texture = ExtResource("3_by38f")
+description = "Destroys a wide burst upwards"
+action_node = ExtResource("1_kfpsf")
 metadata/_custom_type_script = "uid://b1bj1cycl0te1"
