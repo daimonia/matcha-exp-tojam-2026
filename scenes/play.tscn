@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dme7venijbebj" path="res://scenes/totum.tscn" id="6_j27tm"]
 [ext_resource type="Script" uid="uid://b1bj1cycl0te1" path="res://resources/types/glyph.gd" id="7_nak7m"]
 [ext_resource type="Resource" uid="uid://4yyfoxcbjy4g" path="res://resources/glyphs/compass_glyph.tres" id="8_efqae"]
-[ext_resource type="Resource" uid="uid://c8vhqhx5kkhrs" path="res://resources/glyphs/goat_keys_glyph.tres" id="9_efqae"]
-[ext_resource type="Resource" uid="uid://btkr0apy2x3h3" path="res://resources/glyphs/bounce_glyph.tres" id="10_6fc6i"]
 
 [node name="Play" type="Node2D" unique_id=358200194]
 script = ExtResource("1_hsi3f")
@@ -42,6 +40,7 @@ z_index = 1
 position = Vector2(559, -2727)
 mass = 0.1
 world = NodePath("../../World")
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
 pull_stiffness = 90.0
 pull_damping = 6.0
 
@@ -50,7 +49,7 @@ z_index = 1
 position = Vector2(805, -2731)
 mass = 0.1
 world = NodePath("../../World")
-glyphs = Array[ExtResource("7_nak7m")]([ExtResource("10_6fc6i"), ExtResource("9_efqae")])
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum2" parent="TotumManager" unique_id=1961648608 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
@@ -58,6 +57,7 @@ z_index = 1
 position = Vector2(797, -2823)
 mass = 0.1
 world = NodePath("../../World")
+glyphs = Array[ExtResource("7_nak7m")]([ExtResource("8_efqae"), null, null, null, null, null])
 pull_stiffness = 90.0
 
 [node name="Totum" parent="TotumManager" unique_id=1574673616 node_paths=PackedStringArray("world") instance=ExtResource("6_j27tm")]
