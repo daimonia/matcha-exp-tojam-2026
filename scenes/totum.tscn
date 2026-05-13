@@ -74,8 +74,12 @@ stream = SubResource("AudioStreamRandomizer_ifp7h")
 volume_db = -12.0
 bus = &"sfx"
 
+[node name="AttackAfterToppleTimer" type="Timer" parent="." unique_id=2002968918]
+wait_time = 0.5
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="input_event" from="ToppledClickHitbox" to="." method="_on_toppled_click_hitbox_input_event"]
 [connection signal="finished" from="AudioPlayerSpin" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="AudioPlayerTopple" to="." method="_on_audio_stream_player_2d_finished"]
 [connection signal="finished" from="AudioPlayerHolstered" to="." method="_on_audio_stream_player_2d_finished"]
+[connection signal="timeout" from="AttackAfterToppleTimer" to="." method="_on_attack_after_topple_timer_timeout"]

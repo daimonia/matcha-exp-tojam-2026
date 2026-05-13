@@ -113,6 +113,16 @@ layout_mode = 2
 autowrap_mode = 3
 text_overrun_behavior = 3
 
+[node name="Label" type="Label" parent="." unique_id=268701434]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 437.0
+offset_bottom = 95.0
+text = "WASD to move the camera
+Q and E to zoom in and out
+click and drag the Clayblades from the hotbar below :)"
+
 [connection signal="finished_picking" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_finished_picking"]
 [connection signal="hover_ended" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_hover_ended"]
 [connection signal="hover_started" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_hover_started"]

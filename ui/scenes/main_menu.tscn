@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://g8jpjeyae3yk" path="res://ui/scenes/components/settings_menu.tscn" id="4_jix8l"]
 [ext_resource type="AudioStream" uid="uid://ciel5rdvpv3v" path="res://sfx/vox_clayblade.wav" id="4_tc7ta"]
 
+[sub_resource type="SystemFont" id="SystemFont_tc7ta"]
+font_names = PackedStringArray("RuneScape")
+
 [node name="MainMenu" type="Control" unique_id=1057747084]
 layout_mode = 3
 anchors_preset = 15
@@ -30,6 +33,25 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 48
 alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MenuButtons" unique_id=1088908010]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MenuButtons/VBoxContainer" unique_id=1938612584]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_tc7ta")
+theme_override_font_sizes/font_size = 123
+text = "CLAYBLADE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MarginContainer/MenuButtons/VBoxContainer" unique_id=1335977304]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_tc7ta")
+theme_override_font_sizes/font_size = 27
+text = "a game by Kaiya Morgulis and Chloe Rose"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="Button" parent="MarginContainer/MenuButtons" unique_id=496997117]
 layout_mode = 2
