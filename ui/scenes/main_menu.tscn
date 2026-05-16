@@ -1,12 +1,10 @@
 [gd_scene format=3 uid="uid://cmhajaaxjnr7x"]
 
 [ext_resource type="Script" uid="uid://3rq747xwdhl7" path="res://ui/scenes/main_menu.gd" id="2_7vrkn"]
+[ext_resource type="FontFile" uid="uid://ctxfo7y6cg3xk" path="res://ui/runescape_uf.ttf" id="2_p3fdt"]
 [ext_resource type="PackedScene" uid="uid://deqqtqxwritr1" path="res://ui/scenes/components/modal.tscn" id="3_fu7sn"]
 [ext_resource type="PackedScene" uid="uid://g8jpjeyae3yk" path="res://ui/scenes/components/settings_menu.tscn" id="4_jix8l"]
 [ext_resource type="AudioStream" uid="uid://ciel5rdvpv3v" path="res://sfx/vox_clayblade.wav" id="4_tc7ta"]
-
-[sub_resource type="SystemFont" id="SystemFont_tc7ta"]
-font_names = PackedStringArray("RuneScape")
 
 [node name="MainMenu" type="Control" unique_id=1057747084]
 layout_mode = 3
@@ -39,7 +37,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/MenuButtons/VBoxContainer" unique_id=1938612584]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_tc7ta")
+theme_override_fonts/font = ExtResource("2_p3fdt")
 theme_override_font_sizes/font_size = 123
 text = "CLAYBLADE"
 horizontal_alignment = 1
@@ -47,7 +45,7 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="MarginContainer/MenuButtons/VBoxContainer" unique_id=1335977304]
 layout_mode = 2
-theme_override_fonts/font = SubResource("SystemFont_tc7ta")
+theme_override_fonts/font = ExtResource("2_p3fdt")
 theme_override_font_sizes/font_size = 27
 text = "a game by Kaiya Morgulis and Chloe Rose"
 horizontal_alignment = 1

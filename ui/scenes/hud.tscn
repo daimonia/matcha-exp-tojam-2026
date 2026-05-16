@@ -87,7 +87,6 @@ size_flags_vertical = 3
 
 [node name="Panel" type="PanelContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=1971287783]
 layout_mode = 2
-size_flags_vertical = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/Panel" unique_id=228242728]
 layout_mode = 2
@@ -108,7 +107,7 @@ autowrap_mode = 3
 text_overrun_behavior = 3
 
 [node name="GlyphDescriptionLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer" unique_id=78983229]
-custom_minimum_size = Vector2(0, 256)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 autowrap_mode = 3
 text_overrun_behavior = 3
@@ -121,7 +120,7 @@ offset_right = 437.0
 offset_bottom = 95.0
 text = "WASD to move the camera
 Q and E to zoom in and out
-click and drag the Clayblades from the hotbar below :)"
+click and drag the Clayblades from the hotbar below"
 
 [connection signal="finished_picking" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_finished_picking"]
 [connection signal="hover_ended" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MarginContainer/RewardsPanel" to="." method="_on_rewards_panel_hover_ended"]

@@ -9,7 +9,7 @@ signal finished_picking
 @export var rewards: Array[Glyph]
 @export var draggable_reward_scene: PackedScene  # DraggableReward
 
-@onready var draggable_rewards_container: Container = $HBoxContainer
+@onready var draggable_rewards_container: Container = $VBoxContainer/HBoxContainer
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var num_picked: int = 0
